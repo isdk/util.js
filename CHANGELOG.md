@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/isdk/util.js/compare/v0.1.2...v0.1.3) (2025-03-30)
+
+
+### Features
+
+* add toCapitalCase ([d56ec17](https://github.com/isdk/util.js/commit/d56ec17a58f2c8d32fa62a973286199a24a5c2c7))
+
 ## [0.1.2](https://github.com/isdk/util.js/compare/v0.1.1...v0.1.2) (2025-03-30)
 
 
