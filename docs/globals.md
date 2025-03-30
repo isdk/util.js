@@ -11,9 +11,11 @@
 ## Interfaces
 
 - [IncludeFiles](interfaces/IncludeFiles.md)
+- [LoadConfigFileOptions](interfaces/LoadConfigFileOptions.md)
 
 ## Type Aliases
 
+- [StringifyFunc](type-aliases/StringifyFunc.md)
 - [TraverseFolderHandler](type-aliases/TraverseFolderHandler.md)
 - [TraverseFolderSyncHandler](type-aliases/TraverseFolderSyncHandler.md)
 
@@ -32,5 +34,7 @@
 - [registerYamlTag](functions/registerYamlTag.md)
 - [removeLeadingEmptyLines](functions/removeLeadingEmptyLines.md)
 - [stringifyYaml](functions/stringifyYaml.md)
+- [toCamelCase](functions/toCamelCase.md)
+- [toPascalCase](functions/toPascalCase.md)
 - [traverseFolder](functions/traverseFolder.md)
 - [traverseFolderSync](functions/traverseFolderSync.md)

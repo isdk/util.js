@@ -8,7 +8,7 @@
 
 > **isStringIn**(`str`, `arr`): `boolean`
 
-Defined in: [is-string-in.ts:17](https://github.com/isdk/util.js/blob/9d50730dc10248681409cd2901eedc5302b8836b/src/is-string-in.ts#L17)
+Defined in: [is-string-in.ts:17](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/is-string-in.ts#L17)
 
 Checks if a given string exists within an array of strings or a single string.
 

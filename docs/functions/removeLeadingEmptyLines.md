@@ -8,7 +8,7 @@
 
 > **removeLeadingEmptyLines**(`text`): `string`
 
-Defined in: [remove-leading-empty-lines.ts:16](https://github.com/isdk/util.js/blob/9d50730dc10248681409cd2901eedc5302b8836b/src/remove-leading-empty-lines.ts#L16)
+Defined in: [remove-leading-empty-lines.ts:16](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/remove-leading-empty-lines.ts#L16)
 
 Removes all leading empty lines or "#" comments line from the given string.
 

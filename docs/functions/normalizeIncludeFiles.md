@@ -8,7 +8,7 @@
 
 > **normalizeIncludeFiles**(`files`?, `defaultFiles`?): `string`[]
 
-Defined in: [include-files.ts:34](https://github.com/isdk/util.js/blob/9d50730dc10248681409cd2901eedc5302b8836b/src/include-files.ts#L34)
+Defined in: [include-files.ts:34](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/include-files.ts#L34)
 
 Normalizes a list of file patterns for glob matching.
 
