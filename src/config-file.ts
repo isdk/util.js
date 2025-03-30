@@ -15,8 +15,9 @@ function parseJson(content: string) {
 
 // export { LoadConfigFile as ConfigFile }
 
-type StringifyFunc = (content: any) => string
-interface LoadConfigFileOptions {
+export type StringifyFunc = (content: any) => string
+
+export interface LoadConfigFileOptions {
   extLevel?: number
   externalFile?: string
 }
