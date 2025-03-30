@@ -6,7 +6,7 @@
 
 # Class: ConfigFile
 
-Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/config-file.ts#L46)
+Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/config-file.ts#L46)
 
 Represents a configuration file utility class that provides methods to load and save configuration files.
 It supports multiple file formats such as YAML, JSON, etc., by registering corresponding parsers and stringifiers.
@@ -45,7 +45,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **stringifys**: `Record`\<`string`, [`StringifyFunc`](../type-aliases/StringifyFunc.md)\> = `{}`
 
-Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/config-file.ts#L50)
+Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/config-file.ts#L50)
 
 A record of registered stringify functions for different file extensions.
 
@@ -55,7 +55,7 @@ A record of registered stringify functions for different file extensions.
 
 > `static` **load**(`filename`, `options`?): `any`
 
-Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/config-file.ts#L85)
+Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/config-file.ts#L85)
 
 Loads a configuration file based on the provided filename and options.
 
@@ -92,7 +92,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **register**(`extname`, `parser`, `stringify`): `void`
 
-Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/config-file.ts#L64)
+Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/config-file.ts#L64)
 
 Registers a parser and stringifier for specific file extensions.
 
@@ -132,7 +132,7 @@ ConfigFile.register(['.json'], JSON.parse, (obj) => JSON.stringify(obj, null, 2)
 
 > `static` **save**(`filename`, `config`, `options`?): `string`
 
-Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/79fcdde5490ce675c34a8f772113e8a202beea65/src/config-file.ts#L102)
+Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/config-file.ts#L102)
 
 Saves a configuration object to a file with the specified filename and options.
 

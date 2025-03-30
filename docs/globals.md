@@ -35,6 +35,7 @@
 - [removeLeadingEmptyLines](functions/removeLeadingEmptyLines.md)
 - [stringifyYaml](functions/stringifyYaml.md)
 - [toCamelCase](functions/toCamelCase.md)
+- [toCapitalCase](functions/toCapitalCase.md)
 - [toPascalCase](functions/toPascalCase.md)
 - [traverseFolder](functions/traverseFolder.md)
 - [traverseFolderSync](functions/traverseFolderSync.md)
