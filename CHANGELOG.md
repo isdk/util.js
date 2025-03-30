@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.5](https://github.com/isdk/util.js/compare/v0.1.4...v0.1.5) (2025-03-30)
+
+
+### Bug Fixes
+
+* try catch fileHandler error ([d57e048](https://github.com/isdk/util.js/commit/d57e048e4f751b04d987b4327c0ccab1379da1c3))
+
 ## [0.1.4](https://github.com/isdk/util.js/compare/v0.1.3...v0.1.4) (2025-03-30)
 
 
