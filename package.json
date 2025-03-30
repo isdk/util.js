@@ -1,0 +1,69 @@
+{
+  "name": "@isdk/util",
+  "description": "a set of utility functions",
+  "version": "0.1.0",
+  "author": "Riceball LEE @snowyu",
+  "bugs": "https://github.com/isdk/util.js/issues",
+  "dependencies": {
+    "@isdk/glob": "^0.1.0",
+    "load-config-file": "2.0.0",
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.23.0",
+    "@types/chai": "^5",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^18",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10",
+    "shx": "^0.3.3",
+    "terser": "^5.39.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typedoc": "^0.28.1",
+    "typedoc-plugin-markdown": "^4.6.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.28.0",
+    "vite": "^6.2.3",
+    "vitest": "^3.0.9"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "docs",
+    "dist"
+  ],
+  "homepage": "https://github.com/isdk/util.js",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "repository": "isdk/util.js",
+  "scripts": {
+    "build-fast": "tsup",
+    "build": "pnpm run build-fast --dts-resolve --dts && pnpm run doc:md",
+    "clean": "rm -fr docs dist",
+    "doc": "typedoc --plugin none --out web",
+    "doc:md": "typedoc --plugin typedoc-plugin-markdown --out docs",
+    "style": "pnpm run format -c && pnpm run lint",
+    "style:fix": "pnpm run format:fix && pnpm run lint:fix",
+    "format": "prettier \"**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}\"",
+    "format:fix": "pnpm run format --write",
+    "lint": "eslint .",
+    "lint:fix": "pnpm run lint --fix",
+    "test": "vitest run",
+    "release": "pnpm run clean && pnpm run build && git add -f docs && git ci -m 'docs: update API docs' && pnpm dlx commit-and-tag-version -s",
+    "release.alpha": "pnpm run release -- --prerelease alpha"
+  },
+  "types": "dist/index.d.ts"
+}
