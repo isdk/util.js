@@ -8,7 +8,7 @@
 
 > **stringifyYaml**(`content`, `options`?): `string`
 
-Defined in: [yaml.ts:85](https://github.com/isdk/util.js/blob/d56ec17a58f2c8d32fa62a973286199a24a5c2c7/src/yaml.ts#L85)
+Defined in: [yaml.ts:85](https://github.com/isdk/util.js/blob/f467c507a8cfd31890519496ac9059c8ad3f8d03/src/yaml.ts#L85)
 
 Converts a JavaScript object into a YAML string with optional custom tags.
 
