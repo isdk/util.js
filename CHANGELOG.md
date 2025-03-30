@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.4](https://github.com/isdk/util.js/compare/v0.1.3...v0.1.4) (2025-03-30)
+
+
+### Refactor
+
+* can stop scan dir ([f467c50](https://github.com/isdk/util.js/commit/f467c507a8cfd31890519496ac9059c8ad3f8d03))
+
 ## [0.1.3](https://github.com/isdk/util.js/compare/v0.1.2...v0.1.3) (2025-03-30)
 
 
