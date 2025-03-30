@@ -40,12 +40,17 @@ export async function traverseFolder(directoryPath: string, fileHandler: Travers
 
   for (const entry of files) {
     const filePath = path.join(directoryPath, entry.name);
-    if (entry.isDirectory()) {
-      const stopped = await fileHandler(filePath, entry);
-      if (!stopped) {await traverseFolder(filePath, fileHandler);}
-    } else {
-      const stopped = await fileHandler(filePath, entry);
-      if (stopped === true) {break}
+    try {
+      if (entry.isDirectory()) {
+        const stopped = await fileHandler(filePath, entry);
+        if (!stopped) {await traverseFolder(filePath, fileHandler);}
+      } else {
+        const stopped = await fileHandler(filePath, entry);
+        if (stopped === true) {break}
+      }
+    } catch (err) {
+      console.error(`Error processing file: ${filePath}`);
+      console.error(err);
     }
   }
 }
@@ -73,12 +78,17 @@ export function traverseFolderSync(directoryPath: string, fileHandler: TraverseF
 
   for (const entry of files) {
     const filePath = path.join(directoryPath, entry.name);
-    if (entry.isDirectory()) {
-      const stopped = fileHandler(filePath, entry);
-      if (!stopped) {traverseFolder(filePath, fileHandler);}
-    } else {
-      const stopped = fileHandler(filePath, entry);
-      if (stopped === true) {break}
+    try {
+      if (entry.isDirectory()) {
+        const stopped = fileHandler(filePath, entry);
+        if (!stopped) {traverseFolder(filePath, fileHandler);}
+      } else {
+        const stopped = fileHandler(filePath, entry);
+        if (stopped === true) {break}
+      }
+    } catch (err) {
+      console.error(`Error processing file: ${filePath}`);
+      console.error(err);
     }
   }
 }
