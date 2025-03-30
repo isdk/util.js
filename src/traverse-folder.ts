@@ -36,12 +36,17 @@ export type TraverseFolderSyncHandler = (filePath: string, entry: Dirent) => boo
  * ```
  */
 export async function traverseFolder(directoryPath: string, fileHandler: TraverseFolderHandler) {
-  const files = await readdir(directoryPath, { withFileTypes: true, recursive: true });
+  const files = await readdir(directoryPath, { withFileTypes: true });
 
   for (const entry of files) {
     const filePath = path.join(directoryPath, entry.name);
-    const stopped = await fileHandler(filePath, entry);
-    if (stopped === true) {break}
+    if (entry.isDirectory()) {
+      const stopped = await fileHandler(filePath, entry);
+      if (!stopped) {await traverseFolder(filePath, fileHandler);}
+    } else {
+      const stopped = await fileHandler(filePath, entry);
+      if (stopped === true) {break}
+    }
   }
 }
 
@@ -64,11 +69,16 @@ export async function traverseFolder(directoryPath: string, fileHandler: Travers
  * ```
  */
 export function traverseFolderSync(directoryPath: string, fileHandler: TraverseFolderSyncHandler) {
-  const files = readdirSync(directoryPath, { withFileTypes: true, recursive: true });
+  const files = readdirSync(directoryPath, { withFileTypes: true });
 
   for (const entry of files) {
     const filePath = path.join(directoryPath, entry.name);
-    const stopped = fileHandler(filePath, entry);
-    if (stopped === true) {break}
+    if (entry.isDirectory()) {
+      const stopped = fileHandler(filePath, entry);
+      if (!stopped) {traverseFolder(filePath, fileHandler);}
+    } else {
+      const stopped = fileHandler(filePath, entry);
+      if (stopped === true) {break}
+    }
   }
 }

@@ -15,6 +15,7 @@ vi.mock('fs', () => {
   class MockDirent {
     name: string;
     isFile = () => true;
+    isDirectory = () => false;
     constructor(name: string) {
       this.name = name;
     }
