@@ -8,7 +8,7 @@
 
 > **parseYaml**(`content`, `options`?): `any`
 
-Defined in: [yaml.ts:51](https://github.com/isdk/util.js/blob/f467c507a8cfd31890519496ac9059c8ad3f8d03/src/yaml.ts#L51)
+Defined in: [yaml.ts:51](https://github.com/isdk/util.js/blob/d57e048e4f751b04d987b4327c0ccab1379da1c3/src/yaml.ts#L51)
 
 Parses a YAML string into a JavaScript object with optional custom tags.
 

@@ -8,7 +8,7 @@
 
 > **parseFrontMatter**(`value`, `delimiter`): `object`
 
-Defined in: [front-matter.ts:6](https://github.com/isdk/util.js/blob/f467c507a8cfd31890519496ac9059c8ad3f8d03/src/front-matter.ts#L6)
+Defined in: [front-matter.ts:6](https://github.com/isdk/util.js/blob/d57e048e4f751b04d987b4327c0ccab1379da1c3/src/front-matter.ts#L6)
 
 ## Parameters
 
