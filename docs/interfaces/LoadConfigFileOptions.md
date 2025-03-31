@@ -6,7 +6,7 @@
 
 # Interface: LoadConfigFileOptions
 
-Defined in: [config-file.ts:20](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L20)
+Defined in: [config-file.ts:20](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L20)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [config-file.ts:20](https://github.com/isdk/util.js/blob/337b4768818
 
 > `optional` **externalFile**: `string`
 
-Defined in: [config-file.ts:22](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L22)
+Defined in: [config-file.ts:22](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L22)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [config-file.ts:22](https://github.com/isdk/util.js/blob/337b4768818
 
 > `optional` **extLevel**: `number`
 
-Defined in: [config-file.ts:21](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L21)
+Defined in: [config-file.ts:21](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L21)

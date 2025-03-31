@@ -6,7 +6,7 @@
 
 # Class: ConfigFile
 
-Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L46)
+Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L46)
 
 Represents a configuration file utility class that provides methods to load and save configuration files.
 It supports multiple file formats such as YAML, JSON, etc., by registering corresponding parsers and stringifiers.
@@ -22,10 +22,10 @@ ConfigFile.register('.custom', (content) => {
 });
 
 // Save a configuration file
-ConfigFile.save('config.custom', { key: 'value' });
+ConfigFile.saveSync('config.custom', { key: 'value' });
 
 // Load a configuration file
-const config = ConfigFile.load('config.custom');
+const config = ConfigFile.loadSync('config.custom');
 console.log(config); // Output: { key: 'value' }
 ```
 
@@ -45,17 +45,17 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **stringifys**: `Record`\<`string`, [`StringifyFunc`](../type-aliases/StringifyFunc.md)\> = `{}`
 
-Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L50)
+Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L50)
 
 A record of registered stringify functions for different file extensions.
 
 ## Methods
 
-### load()
+### loadSync()
 
-> `static` **load**(`filename`, `options`?): `any`
+> `static` **loadSync**(`filename`, `options`?): `any`
 
-Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L85)
+Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L85)
 
 Loads a configuration file based on the provided filename and options.
 
@@ -82,7 +82,7 @@ The parsed configuration object.
 #### Example
 
 ```typescript
-const config = ConfigFile.load('config.yaml');
+const config = ConfigFile.loadSync('config.yaml');
 console.log(config); // Output: { key: 'value' }
 ```
 
@@ -92,7 +92,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **register**(`extname`, `parser`, `stringify`): `void`
 
-Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L64)
+Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L64)
 
 Registers a parser and stringifier for specific file extensions.
 
@@ -128,11 +128,11 @@ ConfigFile.register(['.json'], JSON.parse, (obj) => JSON.stringify(obj, null, 2)
 
 ***
 
-### save()
+### saveSync()
 
-> `static` **save**(`filename`, `config`, `options`?): `string`
+> `static` **saveSync**(`filename`, `config`, `options`?): `string`
 
-Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/config-file.ts#L102)
+Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/config-file.ts#L102)
 
 Saves a configuration object to a file with the specified filename and options.
 
@@ -165,5 +165,5 @@ The final filename where the configuration was saved.
 #### Example
 
 ```typescript
-ConfigFile.save('config.json', { key: 'value' });
+ConfigFile.saveSync('config.json', { key: 'value' });
 ```

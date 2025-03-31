@@ -8,7 +8,7 @@
 
 > **extNameLevel**(`extName`): `number`
 
-Defined in: [filename.ts:189](https://github.com/isdk/util.js/blob/337b47688186bc271c622eb5b7ca550ac681e127/src/filename.ts#L189)
+Defined in: [filename.ts:189](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/filename.ts#L189)
 
 Calculates the level of an extension name.
 
