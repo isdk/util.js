@@ -8,7 +8,7 @@
 
 > **TraverseFolderSyncHandler** = (`filePath`, `entry`) => `boolean` \| `void`
 
-Defined in: [traverse-folder.ts:18](https://github.com/isdk/util.js/blob/6db2d9183a0020b4684dd604078788d3db3480e8/src/traverse-folder.ts#L18)
+Defined in: [traverse-folder.ts:18](https://github.com/isdk/util.js/blob/4a17f40c6487cc8186e888c58b4e6268f4dcb357/src/traverse-folder.ts#L18)
 
 A handler function for synchronous folder traversal.
 
