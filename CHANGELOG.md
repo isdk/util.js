@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.0](https://github.com/isdk/util.js/compare/v0.2.0...v0.3.0) (2025-03-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* change defaultFiles to []
+
+### Refactor
+
+* change defaultFiles to [] ([4a17f40](https://github.com/isdk/util.js/commit/4a17f40c6487cc8186e888c58b4e6268f4dcb357))
+
 ## [0.2.0](https://github.com/isdk/util.js/compare/v0.1.6...v0.2.0) (2025-03-31)
 
 
