@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@isdk/common-error':
+        specifier: ^0.1.4
+        version: 0.1.4
       '@isdk/glob':
         specifier: ^0.1.0
         version: 0.1.1
@@ -295,6 +298,10 @@ packages:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
 
+  '@isdk/common-error@0.1.4':
+    resolution: {integrity: sha512-HMshHUWuwlnflVqadIA8xe089bAx/YWFkuyjofER1tAUY2HMmKp2FNoX2/Q98crabY2P3yOJqvcEHjDic3Gl6g==}
+    engines: {node: '>=20.11.1'}
+
   '@isdk/glob@0.1.1':
     resolution: {integrity: sha512-1zMgVGRLWzqsFqMRJ9dnCrlSD78L6YhiGSPRRUxys+t4yVM4V2C57Re1Vd8sBimTJ6bK9qWYXIAvsc/EH/ZjKw==}
 
@@ -576,6 +583,9 @@ packages:
 
   '@vitest/utils@3.0.9':
     resolution: {integrity: sha512-ilHM5fHhZ89MCp5aAaM9uhfl1c2JdxVxl3McqsdVyVNN6JffnEen8UMCdRTzOhGXNQGo5GNL9QugHrz727Wnng==}
+
+  abstract-error@2.0.0:
+    resolution: {integrity: sha512-/iQ4Ye+Akc+6hE3axmshcIXjUCRI8YzNN05S9I3mdcNu9gwEyKMdQUyYtDRAaGlgvoXZa+4L38cYzpdQVMAYww==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1715,6 +1725,10 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
+  '@isdk/common-error@0.1.4':
+    dependencies:
+      abstract-error: 2.0.0
+
   '@isdk/glob@0.1.1':
     dependencies:
       picomatch: 4.0.2
@@ -2006,6 +2020,10 @@ snapshots:
       '@vitest/pretty-format': 3.0.9
       loupe: 3.1.3
       tinyrainbow: 2.0.0
+
+  abstract-error@2.0.0:
+    dependencies:
+      inherits-ex: 2.1.0
 
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:

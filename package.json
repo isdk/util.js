@@ -5,6 +5,7 @@
   "author": "Riceball LEE @snowyu",
   "bugs": "https://github.com/isdk/util.js/issues",
   "dependencies": {
+    "@isdk/common-error": "^0.1.4",
     "@isdk/glob": "^0.1.0",
     "load-config-file": "2.0.0",
     "yaml": "^2.7.0"
