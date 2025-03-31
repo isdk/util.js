@@ -12,6 +12,7 @@
 
 - [IncludeFiles](interfaces/IncludeFiles.md)
 - [LoadConfigFileOptions](interfaces/LoadConfigFileOptions.md)
+- [SanitizeFilenameOptions](interfaces/SanitizeFilenameOptions.md)
 
 ## Type Aliases
 
@@ -22,17 +23,26 @@
 ## Variables
 
 - [DefaultAllTextFiles](variables/DefaultAllTextFiles.md)
+- [FilenameReservedRegex](variables/FilenameReservedRegex.md)
+- [WindowsReservedNameRegex](variables/WindowsReservedNameRegex.md)
 
 ## Functions
 
+- [extNameLevel](functions/extNameLevel.md)
+- [filenameReservedRegex](functions/filenameReservedRegex.md)
 - [getMultiLevelExtname](functions/getMultiLevelExtname.md)
 - [glob](functions/glob.md)
 - [isStringIn](functions/isStringIn.md)
+- [isValidFilename](functions/isValidFilename.md)
+- [isValidFilepath](functions/isValidFilepath.md)
 - [normalizeIncludeFiles](functions/normalizeIncludeFiles.md)
 - [parseFrontMatter](functions/parseFrontMatter.md)
 - [parseYaml](functions/parseYaml.md)
+- [reControlCharsRegex](functions/reControlCharsRegex.md)
 - [registerYamlTag](functions/registerYamlTag.md)
 - [removeLeadingEmptyLines](functions/removeLeadingEmptyLines.md)
+- [sanitizeFilename](functions/sanitizeFilename.md)
+- [sanitizeFilepath](functions/sanitizeFilepath.md)
 - [stringifyYaml](functions/stringifyYaml.md)
 - [toCamelCase](functions/toCamelCase.md)
 - [toCapitalCase](functions/toCapitalCase.md)
