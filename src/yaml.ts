@@ -1,6 +1,6 @@
 import { parse, stringify } from 'yaml'
 
-import type { CreateNodeOptions, DocumentOptions, ParseOptions, SchemaOptions, Tags, ToJSOptions, ToStringOptions } from 'yaml'
+import type { CollectionTag, CreateNodeOptions, DocumentOptions, ParseOptions, ScalarTag, SchemaOptions, TagId, Tags, ToJSOptions, ToStringOptions } from 'yaml'
 
 const YamlTags: Tags = []
 
@@ -20,7 +20,7 @@ const YamlTags: Tags = []
  * registerYamlTag(customTag);
  * ```
  */
-export function registerYamlTag(tags: any) {
+export function registerYamlTag(tags: ScalarTag | CollectionTag | TagId | Tags) {
   if (!Array.isArray(tags)) {
     tags = [tags]
   }
