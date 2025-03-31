@@ -5,7 +5,7 @@ import { normalizeIncludeFiles, DefaultAllTextFiles } from './include-files';
 describe('normalizeIncludeFiles', () => {
   it('should use default files when no patterns are provided', () => {
     const result = normalizeIncludeFiles([]);
-    expect(result).toEqual(DefaultAllTextFiles);
+    expect(result).toEqual([]);
   });
 
   it('should handle a simple array of include patterns', () => {
@@ -29,7 +29,7 @@ describe('normalizeIncludeFiles', () => {
       exclude: ['**/node_modules/**'],
     };
     const result = normalizeIncludeFiles(input);
-    expect(result).toEqual([...DefaultAllTextFiles, '!**/node_modules/**']);
+    expect(result).toEqual(['!**/node_modules/**']);
   });
 
   it('should handle only exclude patterns with default include', () => {
@@ -37,17 +37,17 @@ describe('normalizeIncludeFiles', () => {
       exclude: ['**/dist/**', '**/build/**'],
     };
     const result = normalizeIncludeFiles(input);
-    expect(result).toEqual([...DefaultAllTextFiles, '!**/dist/**', '!**/build/**']);
+    expect(result).toEqual(['!**/dist/**', '!**/build/**']);
   });
 
   it('should handle an empty object as input', () => {
     const input = {};
     const result = normalizeIncludeFiles(input);
-    expect(result).toEqual(DefaultAllTextFiles);
+    expect(result).toEqual([]);
   });
 
   it('should handle undefined input gracefully', () => {
     const result = normalizeIncludeFiles(undefined);
-    expect(result).toEqual(DefaultAllTextFiles);
+    expect(result).toEqual([]);
   });
 });
