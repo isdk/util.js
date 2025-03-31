@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.6](https://github.com/isdk/util.js/compare/v0.1.5...v0.1.6) (2025-03-31)
+
+
+### Features
+
+* add filename related functions ([337b476](https://github.com/isdk/util.js/commit/337b47688186bc271c622eb5b7ca550ac681e127))
+
 ## [0.1.5](https://github.com/isdk/util.js/compare/v0.1.4...v0.1.5) (2025-03-30)
 
 
