@@ -36,10 +36,10 @@ export interface LoadConfigFileOptions {
  * });
  *
  * // Save a configuration file
- * ConfigFile.save('config.custom', { key: 'value' });
+ * ConfigFile.saveSync('config.custom', { key: 'value' });
  *
  * // Load a configuration file
- * const config = ConfigFile.load('config.custom');
+ * const config = ConfigFile.loadSync('config.custom');
  * console.log(config); // Output: { key: 'value' }
  * ```
  */
@@ -78,11 +78,11 @@ export class ConfigFile {
    *
    * @example
    * ```typescript
-   * const config = ConfigFile.load('config.yaml');
+   * const config = ConfigFile.loadSync('config.yaml');
    * console.log(config); // Output: { key: 'value' }
    * ```
    */
-  static load(filename: string, options?: LoadConfigFileOptions) {
+  static loadSync(filename: string, options?: LoadConfigFileOptions) {
     return loadConfigFile(filename, options)
   }
 
@@ -96,10 +96,10 @@ export class ConfigFile {
    *
    * @example
    * ```typescript
-   * ConfigFile.save('config.json', { key: 'value' });
+   * ConfigFile.saveSync('config.json', { key: 'value' });
    * ```
    */
-  static save(filename: string, config: any, options?: LoadConfigFileOptions) {
+  static saveSync(filename: string, config: any, options?: LoadConfigFileOptions) {
     return saveConfigFile(filename, config, options)
   }
 }

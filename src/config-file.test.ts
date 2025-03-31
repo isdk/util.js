@@ -46,7 +46,7 @@ describe('ConfigFile', () => {
     it('should save a file with the correct content and extension', () => {
       (existsSync as any).mockReturnValue(true);
 
-      const savedFile = ConfigFile.save(mockFilePath, mockContent);
+      const savedFile = ConfigFile.saveSync(mockFilePath, mockContent);
 
       expect(savedFile).toBe(mockFilePath);
       expect(writeFileSync).toHaveBeenCalledWith(
@@ -59,7 +59,7 @@ describe('ConfigFile', () => {
     it('should create directories if they do not exist', () => {
       (existsSync as any).mockReturnValue(false);
 
-      ConfigFile.save(mockFilePath, mockContent);
+      ConfigFile.saveSync(mockFilePath, mockContent);
 
       expect(mkdirSync).toHaveBeenCalledWith(path.dirname(mockFilePath), { recursive: true });
     });
@@ -67,7 +67,7 @@ describe('ConfigFile', () => {
     it('should throw an error for unsupported file types', () => {
       const invalidFilePath = './mock/unsupported.xyz';
 
-      expect(() => ConfigFile.save(invalidFilePath, mockContent)).toThrow(
+      expect(() => ConfigFile.saveSync(invalidFilePath, mockContent)).toThrow(
         `${invalidFilePath} unsupported mime type: .xyz`
       );
     });
@@ -77,9 +77,9 @@ describe('ConfigFile', () => {
     it('should load a configuration file successfully', () => {
       const mockParsedData = { key: 'loadedValue' };
       (existsSync as any).mockReturnValue(true);
-      vi.spyOn(ConfigFile, 'load').mockImplementation(() => mockParsedData);
+      vi.spyOn(ConfigFile, 'loadSync').mockImplementation(() => mockParsedData);
 
-      const result = ConfigFile.load(mockFilePath);
+      const result = ConfigFile.loadSync(mockFilePath);
 
       expect(result).toEqual(mockParsedData);
     });
@@ -90,14 +90,14 @@ describe('ConfigFile', () => {
       (existsSync as any).mockImplementation((filePath) => filePath === path.join(externalFilePath));
       (readFileSync as any).mockReturnValue('---\nkey: externalValue\n---');
 
-      const result = ConfigFile.load(mockFilePath, { externalFile: 'README.md' });
+      const result = ConfigFile.loadSync(mockFilePath, { externalFile: 'README.md' });
 
       expect(result).toEqual(mockExternalData);
     });
 
     it('should return undefined if neither main file nor external file is found', () => {
       (readFileSync as any).mockReturnValue(undefined);
-      const result = ConfigFile.load(mockFilePath, { externalFile: 'README.md' });
+      const result = ConfigFile.loadSync(mockFilePath, { externalFile: 'README.md' });
 
       expect(result).toBeUndefined();
     });
