@@ -28,6 +28,7 @@
 
 ## Functions
 
+- [arrayHasAll](functions/arrayHasAll.md)
 - [extNameLevel](functions/extNameLevel.md)
 - [filenameReservedRegex](functions/filenameReservedRegex.md)
 - [getMultiLevelExtname](functions/getMultiLevelExtname.md)
