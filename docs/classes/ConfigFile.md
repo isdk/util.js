@@ -6,7 +6,7 @@
 
 # Class: ConfigFile
 
-Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/config-file.ts#L46)
+Defined in: [config-file.ts:46](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L46)
 
 Represents a configuration file utility class that provides methods to load and save configuration files.
 It supports multiple file formats such as YAML, JSON, etc., by registering corresponding parsers and stringifiers.
@@ -45,17 +45,66 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **stringifys**: `Record`\<`string`, [`StringifyFunc`](../type-aliases/StringifyFunc.md)\> = `{}`
 
-Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/config-file.ts#L50)
+Defined in: [config-file.ts:50](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L50)
 
 A record of registered stringify functions for different file extensions.
 
 ## Methods
 
+### existsSync()
+
+> `static` **existsSync**(`filename`, `options`?): `boolean`
+
+Defined in: [config-file.ts:132](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L132)
+
+Checks if a configuration file exists at the specified path.
+
+This method normalizes the filename by removing the extension (if present) and then delegates
+to the underlying LoadConfigFile utility to perform the existence check. The normalization
+ensures consistent handling of files regardless of whether they include extensions in the
+provided filename.
+
+#### Parameters
+
+##### filename
+
+`string`
+
+The path to the configuration file to check for existence.
+                 This can include or omit the file extension.
+
+##### options?
+
+[`LoadConfigFileOptions`](../interfaces/LoadConfigFileOptions.md)
+
+Optional configuration options that may affect how the file existence
+                is checked, including extension level handling.
+
+#### Returns
+
+`boolean`
+
+`true` if the configuration file exists, `false` otherwise.
+
+#### Example
+
+```typescript
+// Check if a YAML config file exists
+const exists = ConfigFile.existsSync('config.yaml');
+console.log(exists); // true or false
+
+// Check with options
+const existsWithExt = ConfigFile.existsSync('config', { extLevel: 2 });
+console.log(existsWithExt); // true or false
+```
+
+***
+
 ### loadSync()
 
 > `static` **loadSync**(`filename`, `options`?): `any`
 
-Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/config-file.ts#L85)
+Defined in: [config-file.ts:85](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L85)
 
 Loads a configuration file based on the provided filename and options.
 
@@ -92,7 +141,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **register**(`extname`, `parser`, `stringify`): `void`
 
-Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/config-file.ts#L64)
+Defined in: [config-file.ts:64](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L64)
 
 Registers a parser and stringifier for specific file extensions.
 
@@ -132,7 +181,7 @@ ConfigFile.register(['.json'], JSON.parse, (obj) => JSON.stringify(obj, null, 2)
 
 > `static` **saveSync**(`filename`, `config`, `options`?): `string`
 
-Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/config-file.ts#L102)
+Defined in: [config-file.ts:102](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/config-file.ts#L102)
 
 Saves a configuration object to a file with the specified filename and options.
 

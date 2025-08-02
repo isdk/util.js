@@ -8,7 +8,7 @@
 
 > **arrayHasAll**\<`T`\>(`array`, `elements`): `boolean`
 
-Defined in: [array-has-all.ts:15](https://github.com/isdk/util.js/blob/37cf8e647afe115375188dc281429b45345985c4/src/array-has-all.ts#L15)
+Defined in: [array-has-all.ts:15](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/array-has-all.ts#L15)
 
 Checks whether the provided array contains all of the specified elements.
 
