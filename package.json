@@ -7,7 +7,7 @@
   "dependencies": {
     "@isdk/common-error": "^0.1.4",
     "@isdk/glob": "^0.1.0",
-    "load-config-file": "2.0.0",
+    "load-config-file": "^2.1.0",
     "yaml": "^2.7.0"
   },
   "devDependencies": {

@@ -15,8 +15,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.1
       load-config-file:
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: ^2.1.0
+        version: 2.1.0
       yaml:
         specifier: ^2.7.0
         version: 2.7.1
@@ -1018,8 +1018,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  load-config-file@2.0.0:
-    resolution: {integrity: sha512-+F7L7PHDhsqGXqr1s69/F54B3yU2UEU1AYLCEp7slVCeQnrJF0xgHbpP3AwY1xGrvoeKHZzNxtCk9n/vX8BZVQ==}
+  load-config-file@2.1.0:
+    resolution: {integrity: sha512-xE12joOp3YlSCZXCXTfYWDekQCv2jN1XtI0GjwMx5ruG+tx8LDodY4HUyhYRBb8ePBjOBRgu0kLxbNRPifxdpQ==}
 
   load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
@@ -2466,7 +2466,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  load-config-file@2.0.0:
+  load-config-file@2.1.0:
     dependencies:
       path.js: 2.0.1
       promise-sequence: 2.0.0

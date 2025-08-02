@@ -1,3 +1,4 @@
+import { Config as LoadConfigFile } from 'load-config-file'
 import { vi } from 'vitest';
 import { ConfigFile } from './config-file';
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'fs';
@@ -10,6 +11,9 @@ vi.mock('fs', () => ({
   readFileSync: vi.fn(),
   writeFileSync: vi.fn(),
 }));
+
+// use the mocked existsSync
+LoadConfigFile.prototype.fs.existsSync = existsSync;
 
 describe('ConfigFile', () => {
   const mockFilePath = './mock/config.yaml';
@@ -80,8 +84,9 @@ describe('ConfigFile', () => {
       vi.spyOn(ConfigFile, 'loadSync').mockImplementation(() => mockParsedData);
 
       const result = ConfigFile.loadSync(mockFilePath);
-
       expect(result).toEqual(mockParsedData);
+
+      expect(ConfigFile.existsSync(mockFilePath)).toBeTruthy();
     });
 
     it('should fallback to external file if main file is not found', () => {

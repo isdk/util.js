@@ -102,18 +102,69 @@ export class ConfigFile {
   static saveSync(filename: string, config: any, options?: LoadConfigFileOptions) {
     return saveConfigFile(filename, config, options)
   }
+
+  /**
+   * Checks if a configuration file exists at the specified path.
+   *
+   * This method normalizes the filename by removing the extension (if present) and then delegates
+   * to the underlying LoadConfigFile utility to perform the existence check. The normalization
+   * ensures consistent handling of files regardless of whether they include extensions in the
+   * provided filename.
+   *
+   * @param filename - The path to the configuration file to check for existence.
+   *                  This can include or omit the file extension.
+   * @param options - Optional configuration options that may affect how the file existence
+   *                 is checked, including extension level handling.
+   *
+   * @returns `true` if the configuration file exists, `false` otherwise.
+   *
+   * @example
+   * ```typescript
+   * // Check if a YAML config file exists
+   * const exists = ConfigFile.existsSync('config.yaml');
+   * console.log(exists); // true or false
+   *
+   * // Check with options
+   * const existsWithExt = ConfigFile.existsSync('config', { extLevel: 2 });
+   * console.log(existsWithExt); // true or false
+   * ```
+   */
+  static existsSync(filename: string, options?: LoadConfigFileOptions) {
+    filename = normalizeFilenameWithoutExt(filename, options?.extLevel)
+    return LoadConfigFile.existsSync(filename, options)
+  }
 }
 
 ConfigFile.register(['.yml', '.yaml'], parseYaml, stringifyYaml)
 ConfigFile.register(['.json'], parseJson, (obj) => JSON.stringify(obj, null, 2))
 
-function saveConfigFile(filename: string, config: any, {extLevel = 1}: LoadConfigFileOptions = {}) {
+function normalizeYamlFilename(filename: string, extLevel = 1) {
   if (filename[0] === '.') {extLevel++}
   let extname = getMultiLevelExtname(filename, extLevel)
   if (!extname || (extname.split('.').length <= 1)) {
     filename += '.yaml'
     extname = '.yaml'
   }
+  const result = new String(filename) as String & {extname: string}
+  result.extname = extname
+  return result
+}
+
+function normalizeFilenameWithoutExt(filename: string, extLevel: number = 1) {
+  if (filename[0] === '.') {extLevel++}
+  const extname = getMultiLevelExtname(filename, extLevel)
+  if (extname && (extname.split('.').length > 1)) {
+    // remove the extension
+    filename = filename.slice(0, -extname.length)
+  }
+  return filename;
+}
+
+function saveConfigFile(filename: string, config: any, {extLevel = 1}: LoadConfigFileOptions = {}) {
+  const _filename = normalizeYamlFilename(filename, extLevel)
+  const extname = _filename.extname
+  filename = _filename.toString()
+
   const stringify = ConfigFile.stringifys[extname]
   if (stringify) {
     config = stringify(config)
@@ -130,12 +181,8 @@ function saveConfigFile(filename: string, config: any, {extLevel = 1}: LoadConfi
 }
 
 function loadConfigFile(filename: string, {extLevel = 1, externalFile}: LoadConfigFileOptions = {}) {
-  if (filename[0] === '.') {extLevel++}
-  const extname = getMultiLevelExtname(filename, extLevel)
-  if (extname && (extname.split('.').length > 1)) {
-    // remove the extension
-    filename = filename.slice(0, -extname.length)
-  }
+  filename = normalizeFilenameWithoutExt(filename, extLevel)
+
   let result = LoadConfigFile.loadSync(filename)
   if (!result && externalFile) {
     if (!path.isAbsolute(externalFile)) {
