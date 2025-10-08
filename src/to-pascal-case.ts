@@ -24,6 +24,18 @@ export function toPascalCase(str: string) {
 
   // Step 2: Capitalize the first letter of each word and join them together
   return words
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => {
+      let result = word.charAt(0).toUpperCase()
+      word = word.slice(1)
+      let i = 0
+      while (/[A-Z]/.test(word[i])) {i++}
+      if (i) {
+        result += word.slice(0, i).toLowerCase() + word.slice(i)
+      } else {
+        result += word
+      }
+
+      return result
+    })
     .join("");
 }

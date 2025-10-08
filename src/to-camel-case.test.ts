@@ -28,4 +28,8 @@ describe("toCamelCase", () => {
   test("handles strings with numbers", () => {
     expect(toCamelCase("hello123 world456")).toBe("hello123World456");
   });
+
+  test("handles strings with continuous Uppercase letters", () => {
+    expect(toCamelCase("hello123 wORLD456")).toBe("hello123World456");
+  });
 });

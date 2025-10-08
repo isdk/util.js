@@ -18,7 +18,7 @@ describe("toPascalCase", () => {
   });
 
   test("converts a string with mixed cases to PascalCase", () => {
-    expect(toPascalCase("hElLo wOrLd")).toBe("HElLoWOrLd");
+    expect(toPascalCase("hElLo wOrLd")).toBe("HelLoWorLd");
   });
 
   test("converts an already PascalCase string to PascalCase", () => {
@@ -35,5 +35,9 @@ describe("toPascalCase", () => {
 
   test("converts a string with numbers to PascalCase", () => {
     expect(toPascalCase("hello123 world456")).toBe("Hello123World456");
+  });
+
+  test("handles strings with continuous Uppercase letters", () => {
+    expect(toPascalCase("hello123 wORLD456")).toBe("Hello123World456");
   });
 });
