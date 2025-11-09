@@ -1,6 +1,6 @@
 import { isAsync } from 'util-ex';
 import { EventEmitter } from 'events-ex';
-import { Deque } from '@isdk/util'
+import { Deque } from './deque';
 import { AbortError } from '@isdk/common-error';
 
 // async-sema Released under MIT
