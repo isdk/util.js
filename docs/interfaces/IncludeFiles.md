@@ -6,7 +6,7 @@
 
 # Interface: IncludeFiles
 
-Defined in: [include-files.ts:6](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/include-files.ts#L6)
+Defined in: [src/include-files.ts:6](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/include-files.ts#L6)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [include-files.ts:6](https://github.com/isdk/util.js/blob/e52ad0627f
 
 > `optional` **exclude**: `string`[]
 
-Defined in: [include-files.ts:8](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/include-files.ts#L8)
+Defined in: [src/include-files.ts:8](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/include-files.ts#L8)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [include-files.ts:8](https://github.com/isdk/util.js/blob/e52ad0627f
 
 > `optional` **include**: `string`[]
 
-Defined in: [include-files.ts:7](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/include-files.ts#L7)
+Defined in: [src/include-files.ts:7](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/include-files.ts#L7)

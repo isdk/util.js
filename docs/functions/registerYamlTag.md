@@ -8,7 +8,7 @@
 
 > **registerYamlTag**(`tags`): `void`
 
-Defined in: [yaml.ts:23](https://github.com/isdk/util.js/blob/e52ad0627fc33dea09d8db6ef431d619770364c0/src/yaml.ts#L23)
+Defined in: [src/yaml.ts:23](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/yaml.ts#L23)
 
 Registers custom YAML tags to be used in parsing and stringifying YAML content.
 
@@ -18,7 +18,7 @@ Registers custom YAML tags to be used in parsing and stringifying YAML content.
 
 A single tag or an array of tags to register.
 
-`Tags` | `ScalarTag` | `CollectionTag` | `"binary"` | `"bool"` | `"float"` | `"floatExp"` | `"floatNaN"` | `"floatTime"` | `"int"` | `"intHex"` | `"intOct"` | `"intTime"` | `"map"` | `"merge"` | `"null"` | `"omap"` | `"pairs"` | `"seq"` | `"set"` | `"timestamp"`
+`"map"` | `Tags` | `ScalarTag` | `CollectionTag` | `"binary"` | `"bool"` | `"float"` | `"floatExp"` | `"floatNaN"` | `"floatTime"` | `"int"` | `"intHex"` | `"intOct"` | `"intTime"` | `"merge"` | `"null"` | `"omap"` | `"pairs"` | `"seq"` | `"set"` | `"timestamp"`
 
 ## Returns
 
