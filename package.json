@@ -1,7 +1,7 @@
 {
   "name": "@isdk/util",
   "description": "a set of utility functions",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Riceball LEE @snowyu",
   "bugs": "https://github.com/isdk/util.js/issues",
   "dependencies": {
