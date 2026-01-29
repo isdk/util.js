@@ -5,31 +5,31 @@
   "author": "Riceball LEE @snowyu",
   "bugs": "https://github.com/isdk/util.js/issues",
   "dependencies": {
-    "@isdk/common-error": "^0.1.4",
-    "@isdk/glob": "^0.1.0",
+    "@isdk/common-error": "^0.2.0",
+    "@isdk/glob": "^0.1.1",
     "events-ex": "^2.1.1",
     "load-config-file": "^2.1.0",
     "util-ex": "^2.5.1",
-    "yaml": "^2.7.0"
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.23.0",
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
     "@types/chai": "^5",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^18",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25",
     "eslint": "^9",
     "eslint-config-prettier": "^10",
-    "shx": "^0.3.3",
-    "terser": "^5.39.0",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typedoc": "^0.28.1",
-    "typedoc-plugin-markdown": "^4.6.0",
+    "shx": "^0.4.0",
+    "terser": "^5.46.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typedoc": "^0.28.16",
+    "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.28.0",
-    "vite": "^6.2.3",
-    "vitest": "^3.0.9"
+    "typescript-eslint": "^8.54.0",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=18.0.0"
