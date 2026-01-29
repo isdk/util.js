@@ -6,7 +6,7 @@
 
 # Class: Deque\<T\>
 
-Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L31)
+Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L31)
 
 ## Extends
 
@@ -28,7 +28,7 @@ Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/7adcba7486666
 
 > **new Deque**\<`T`\>(`capacity?`, `disableAutoResize?`): `Deque`\<`T`\>
 
-Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L37)
+Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L37)
 
 #### Parameters
 
@@ -246,7 +246,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **get** **size**(): `number`
 
-Defined in: [src/deque.ts:172](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L172)
+Defined in: [src/deque.ts:172](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L172)
 
 Gets the number of elements in the deque.
 
@@ -317,7 +317,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **clear**(): `void`
 
-Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L206)
+Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L206)
 
 #### Returns
 
@@ -851,7 +851,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **get**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:176](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L176)
+Defined in: [src/deque.ts:176](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L176)
 
 #### Parameters
 
@@ -933,7 +933,7 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 > **isEmpty**(): `boolean`
 
-Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L217)
+Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L217)
 
 #### Returns
 
@@ -1059,7 +1059,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **peekBack**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L190)
+Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L190)
 
 #### Returns
 
@@ -1071,7 +1071,7 @@ Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/7adcba748666
 
 > **peekFront**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L199)
+Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L199)
 
 #### Returns
 
@@ -1083,7 +1083,7 @@ Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/7adcba748666
 
 > **pop**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:102](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L102)
+Defined in: [src/deque.ts:102](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L102)
 
 Removes and returns the element at the back of the deque.
 
@@ -1133,7 +1133,7 @@ mixedDeque.pop(false); // null (explicitly not skipping)
 
 > **push**(`item`): `number`
 
-Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L52)
+Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L52)
 
 Appends new elements to the end of an array, and returns the new length of the array.
 
@@ -1333,7 +1333,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **removeAt**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L226)
+Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L226)
 
 Removes the element at the specified index.
 
@@ -1376,7 +1376,7 @@ This method mutates the array and returns a reference to the same array.
 
 > **shift**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:142](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L142)
+Defined in: [src/deque.ts:142](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L142)
 
 Removes and returns the element at the front of the deque.
 
@@ -1665,7 +1665,7 @@ Returns a string representation of an array.
 
 > **unshift**(`item`): `number`
 
-Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L65)
+Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/deque.ts#L65)
 
 Inserts new elements at the start of an array, and returns the new length of the array.
 

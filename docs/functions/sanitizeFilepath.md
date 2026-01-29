@@ -8,7 +8,7 @@
 
 > **sanitizeFilepath**(`filepath`, `options`): `string`
 
-Defined in: [src/filename.ts:149](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/filename.ts#L149)
+Defined in: [src/filename.ts:149](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/filename.ts#L149)
 
 Sanitizes each part of a file path and reassembles it, ensuring the path is valid according to provided options.
 

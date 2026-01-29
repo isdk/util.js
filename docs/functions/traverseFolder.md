@@ -8,7 +8,7 @@
 
 > **traverseFolder**(`directoryPath`, `fileHandler`): `Promise`\<`void`\>
 
-Defined in: [src/traverse-folder.ts:38](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/traverse-folder.ts#L38)
+Defined in: [src/traverse-folder.ts:38](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/traverse-folder.ts#L38)
 
 Traverses a folder asynchronously and applies a handler to each file or directory.
 
