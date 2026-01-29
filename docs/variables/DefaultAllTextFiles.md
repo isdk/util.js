@@ -8,4 +8,4 @@
 
 > `const` **DefaultAllTextFiles**: `string`[]
 
-Defined in: [src/include-files.ts:1](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/include-files.ts#L1)
+Defined in: [src/include-files.ts:1](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/include-files.ts#L1)

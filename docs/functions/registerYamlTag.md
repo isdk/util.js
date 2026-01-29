@@ -8,7 +8,7 @@
 
 > **registerYamlTag**(`tags`): `void`
 
-Defined in: [src/yaml.ts:23](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/yaml.ts#L23)
+Defined in: [src/yaml.ts:23](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/yaml.ts#L23)
 
 Registers custom YAML tags to be used in parsing and stringifying YAML content.
 

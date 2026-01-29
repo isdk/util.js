@@ -8,7 +8,7 @@
 
 > **reControlCharsRegex**(): `RegExp`
 
-Defined in: [src/filename.ts:50](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/filename.ts#L50)
+Defined in: [src/filename.ts:50](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/filename.ts#L50)
 
 Returns a new regular expression instance for control characters in a filename with the 'g' flag.
 

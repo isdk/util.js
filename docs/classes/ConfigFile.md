@@ -6,7 +6,7 @@
 
 # Class: ConfigFile
 
-Defined in: [src/config-file.ts:46](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L46)
+Defined in: [src/config-file.ts:46](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L46)
 
 Represents a configuration file utility class that provides methods to load and save configuration files.
 It supports multiple file formats such as YAML, JSON, etc., by registering corresponding parsers and stringifiers.
@@ -45,7 +45,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **stringifys**: `Record`\<`string`, [`StringifyFunc`](../type-aliases/StringifyFunc.md)\> = `{}`
 
-Defined in: [src/config-file.ts:50](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L50)
+Defined in: [src/config-file.ts:50](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L50)
 
 A record of registered stringify functions for different file extensions.
 
@@ -53,9 +53,9 @@ A record of registered stringify functions for different file extensions.
 
 ### existsSync()
 
-> `static` **existsSync**(`filename`, `options`?): `boolean`
+> `static` **existsSync**(`filename`, `options?`): `boolean`
 
-Defined in: [src/config-file.ts:132](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L132)
+Defined in: [src/config-file.ts:132](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L132)
 
 Checks if a configuration file exists at the specified path.
 
@@ -102,9 +102,9 @@ console.log(existsWithExt); // true or false
 
 ### loadSync()
 
-> `static` **loadSync**(`filename`, `options`?): `any`
+> `static` **loadSync**(`filename`, `options?`): `any`
 
-Defined in: [src/config-file.ts:85](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L85)
+Defined in: [src/config-file.ts:85](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L85)
 
 Loads a configuration file based on the provided filename and options.
 
@@ -141,7 +141,7 @@ console.log(config); // Output: { key: 'value' }
 
 > `static` **register**(`extname`, `parser`, `stringify`): `void`
 
-Defined in: [src/config-file.ts:64](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L64)
+Defined in: [src/config-file.ts:64](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L64)
 
 Registers a parser and stringifier for specific file extensions.
 
@@ -179,9 +179,9 @@ ConfigFile.register(['.json'], JSON.parse, (obj) => JSON.stringify(obj, null, 2)
 
 ### saveSync()
 
-> `static` **saveSync**(`filename`, `config`, `options`?): `string`
+> `static` **saveSync**(`filename`, `config`, `options?`): `string`
 
-Defined in: [src/config-file.ts:102](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/config-file.ts#L102)
+Defined in: [src/config-file.ts:102](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/config-file.ts#L102)
 
 Saves a configuration object to a file with the specified filename and options.
 

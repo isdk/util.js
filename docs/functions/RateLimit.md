@@ -8,7 +8,7 @@
 
 > **RateLimit**(`rps`, `__namedParameters`): () => `Promise`\<`void`\>
 
-Defined in: [src/async-semaphore.ts:476](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/async-semaphore.ts#L476)
+Defined in: [src/async-semaphore.ts:476](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/async-semaphore.ts#L476)
 
 Creates a rate limiter function that blocks with a promise whenever the rate limit is hit and resolves the promise once the call rate is within the limit set by rps. The second argument is optional.
 
@@ -30,7 +30,7 @@ Creates a rate limiter function that blocks with a promise whenever the rate lim
 
 ## Returns
 
-`Function`
+> (): `Promise`\<`void`\>
 
 ### Returns
 

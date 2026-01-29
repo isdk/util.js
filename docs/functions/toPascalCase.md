@@ -8,7 +8,7 @@
 
 > **toPascalCase**(`str`): `string`
 
-Defined in: [src/to-pascal-case.ts:16](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/to-pascal-case.ts#L16)
+Defined in: [src/to-pascal-case.ts:16](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/to-pascal-case.ts#L16)
 
 Converts a string to PascalCase.
 

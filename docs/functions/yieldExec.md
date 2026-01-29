@@ -8,7 +8,7 @@
 
 > **yieldExec**(): `Promise`\<`void`\>
 
-Defined in: [src/sleep.ts:28](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/sleep.ts#L28)
+Defined in: [src/sleep.ts:28](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/sleep.ts#L28)
 
 Yields execution control to the event loop, allowing pending I/O operations
 and scheduled tasks to run before continuing.

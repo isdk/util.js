@@ -6,7 +6,7 @@
 
 # Class: Deque\<T\>
 
-Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L31)
+Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L31)
 
 ## Extends
 
@@ -26,9 +26,9 @@ Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/f6ac1e1b241d0
 
 ### Constructor
 
-> **new Deque**\<`T`\>(`capacity`?, `disableAutoResize`?): `Deque`\<`T`\>
+> **new Deque**\<`T`\>(`capacity?`, `disableAutoResize?`): `Deque`\<`T`\>
 
-Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L37)
+Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L37)
 
 #### Parameters
 
@@ -61,7 +61,7 @@ when they will be absent when used in a 'with' statement.
 
 #### Index Signature
 
-\[`key`: `number`\]: `undefined` \| `boolean`
+\[`key`: `number`\]: `boolean` \| `undefined`
 
 #### \[iterator\]?
 
@@ -224,7 +224,7 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 #### Inherited from
 
-`Array.length`
+`Deque`.[`length`](#length)
 
 ***
 
@@ -246,7 +246,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **get** **size**(): `number`
 
-Defined in: [src/deque.ts:172](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L172)
+Defined in: [src/deque.ts:172](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L172)
 
 Gets the number of elements in the deque.
 
@@ -289,7 +289,7 @@ Iterator
 
 ### at()
 
-> **at**(`index`): `undefined` \| `T`
+> **at**(`index`): `T` \| `undefined`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2022.array.d.ts:24
 
@@ -305,7 +305,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 #### Inherited from
 
@@ -317,7 +317,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **clear**(): `void`
 
-Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L206)
+Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L206)
 
 #### Returns
 
@@ -381,7 +381,7 @@ Additional arrays and/or items to add to the end of the array.
 
 ### copyWithin()
 
-> **copyWithin**(`target`, `start`, `end`?): `this`
+> **copyWithin**(`target`, `start`, `end?`): `this`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:62
 
@@ -442,7 +442,7 @@ Returns an iterable of key, value pairs for every entry in the array
 
 #### Call Signature
 
-> **every**\<`S`\>(`predicate`, `thisArg`?): `this is S[]`
+> **every**\<`S`\>(`predicate`, `thisArg?`): `this is S[]`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1433
 
@@ -481,7 +481,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 #### Call Signature
 
-> **every**(`predicate`, `thisArg`?): `boolean`
+> **every**(`predicate`, `thisArg?`): `boolean`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1442
 
@@ -516,7 +516,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 ### fill()
 
-> **fill**(`value`, `start`?, `end`?): `this`
+> **fill**(`value`, `start?`, `end?`): `this`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:51
 
@@ -558,7 +558,7 @@ length+end.
 
 #### Call Signature
 
-> **filter**\<`S`\>(`predicate`, `thisArg`?): `S`[]
+> **filter**\<`S`\>(`predicate`, `thisArg?`): `S`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1469
 
@@ -594,7 +594,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 #### Call Signature
 
-> **filter**(`predicate`, `thisArg`?): `T`[]
+> **filter**(`predicate`, `thisArg?`): `T`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1475
 
@@ -628,7 +628,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 #### Call Signature
 
-> **find**\<`S`\>(`predicate`, `thisArg`?): `undefined` \| `S`
+> **find**\<`S`\>(`predicate`, `thisArg?`): `S` \| `undefined`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:29
 
@@ -660,7 +660,7 @@ predicate. If it is not provided, undefined is used instead.
 
 ##### Returns
 
-`undefined` \| `S`
+`S` \| `undefined`
 
 ##### Inherited from
 
@@ -668,7 +668,7 @@ predicate. If it is not provided, undefined is used instead.
 
 #### Call Signature
 
-> **find**(`predicate`, `thisArg`?): `undefined` \| `T`
+> **find**(`predicate`, `thisArg?`): `T` \| `undefined`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:30
 
@@ -684,7 +684,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 ##### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 ##### Inherited from
 
@@ -694,7 +694,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 ### findIndex()
 
-> **findIndex**(`predicate`, `thisArg`?): `number`
+> **findIndex**(`predicate`, `thisArg?`): `number`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:41
 
@@ -730,7 +730,7 @@ predicate. If it is not provided, undefined is used instead.
 
 ### flat()
 
-> **flat**\<`A`, `D`\>(`this`, `depth`?): `FlatArray`\<`A`, `D`\>[]
+> **flat**\<`A`, `D`\>(`this`, `depth?`): `FlatArray`\<`A`, `D`\>[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2019.array.d.ts:75
 
@@ -771,7 +771,7 @@ The maximum recursion depth
 
 ### flatMap()
 
-> **flatMap**\<`U`, `This`\>(`callback`, `thisArg`?): `U`[]
+> **flatMap**\<`U`, `This`\>(`callback`, `thisArg?`): `U`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2019.array.d.ts:64
 
@@ -817,7 +817,7 @@ thisArg is omitted, undefined is used as the this value.
 
 ### forEach()
 
-> **forEach**(`callbackfn`, `thisArg`?): `void`
+> **forEach**(`callbackfn`, `thisArg?`): `void`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1457
 
@@ -849,9 +849,9 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 ### get()
 
-> **get**(`index`): `undefined` \| `T`
+> **get**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:176](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L176)
+Defined in: [src/deque.ts:176](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L176)
 
 #### Parameters
 
@@ -861,13 +861,13 @@ Defined in: [src/deque.ts:176](https://github.com/isdk/util.js/blob/f6ac1e1b241d
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 ***
 
 ### includes()
 
-> **includes**(`searchElement`, `fromIndex`?): `boolean`
+> **includes**(`searchElement`, `fromIndex?`): `boolean`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2016.array.include.d.ts:25
 
@@ -899,7 +899,7 @@ The position in this array at which to begin searching for searchElement.
 
 ### indexOf()
 
-> **indexOf**(`searchElement`, `fromIndex`?): `number`
+> **indexOf**(`searchElement`, `fromIndex?`): `number`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1418
 
@@ -933,7 +933,7 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 > **isEmpty**(): `boolean`
 
-Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L217)
+Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L217)
 
 #### Returns
 
@@ -943,7 +943,7 @@ Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/f6ac1e1b241d
 
 ### join()
 
-> **join**(`separator`?): `string`
+> **join**(`separator?`): `string`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1361
 
@@ -987,7 +987,7 @@ Returns an iterable of keys in the array
 
 ### lastIndexOf()
 
-> **lastIndexOf**(`searchElement`, `fromIndex`?): `number`
+> **lastIndexOf**(`searchElement`, `fromIndex?`): `number`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1424
 
@@ -1019,7 +1019,7 @@ The array index at which to begin searching backward. If fromIndex is omitted, t
 
 ### map()
 
-> **map**\<`U`\>(`callbackfn`, `thisArg`?): `U`[]
+> **map**\<`U`\>(`callbackfn`, `thisArg?`): `U`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1463
 
@@ -1057,33 +1057,33 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 ### peekBack()
 
-> **peekBack**(): `undefined` \| `T`
+> **peekBack**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L190)
+Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L190)
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 ***
 
 ### peekFront()
 
-> **peekFront**(): `undefined` \| `T`
+> **peekFront**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L199)
+Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L199)
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 ***
 
 ### pop()
 
-> **pop**(`skipNull`?): `undefined` \| `T`
+> **pop**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:102](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L102)
+Defined in: [src/deque.ts:102](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L102)
 
 Removes and returns the element at the back of the deque.
 
@@ -1097,7 +1097,7 @@ When `true`, skips trailing `null`/`undefined` values until a valid element is f
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 The removed element, or `undefined` if the deque is empty or all elements are skipped.
 
@@ -1133,7 +1133,7 @@ mixedDeque.pop(false); // null (explicitly not skipping)
 
 > **push**(`item`): `number`
 
-Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L52)
+Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L52)
 
 Appends new elements to the end of an array, and returns the new length of the array.
 
@@ -1331,9 +1331,9 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 ### removeAt()
 
-> **removeAt**(`index`): `undefined` \| `T`
+> **removeAt**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L226)
+Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L226)
 
 Removes the element at the specified index.
 
@@ -1347,7 +1347,7 @@ Logical index position (0 represents the front, length-1 represents the back)
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 The removed element
 
@@ -1374,9 +1374,9 @@ This method mutates the array and returns a reference to the same array.
 
 ### shift()
 
-> **shift**(`skipNull`?): `undefined` \| `T`
+> **shift**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:142](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L142)
+Defined in: [src/deque.ts:142](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L142)
 
 Removes and returns the element at the front of the deque.
 
@@ -1390,7 +1390,7 @@ When `true`, skips leading `null`/`undefined` values until a valid element is fo
 
 #### Returns
 
-`undefined` \| `T`
+`T` \| `undefined`
 
 The removed element, or `undefined` if the deque is empty or all elements are skipped.
 
@@ -1424,7 +1424,7 @@ mixedDeque.shift(false); // null (explicitly not skipping)
 
 ### slice()
 
-> **slice**(`start`?, `end`?): `T`[]
+> **slice**(`start?`, `end?`): `T`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1381
 
@@ -1460,7 +1460,7 @@ If end is undefined, then the slice extends to the end of the array.
 
 ### some()
 
-> **some**(`predicate`, `thisArg`?): `boolean`
+> **some**(`predicate`, `thisArg?`): `boolean`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1451
 
@@ -1495,7 +1495,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 ### sort()
 
-> **sort**(`compareFn`?): `this`
+> **sort**(`compareFn?`): `this`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1392
 
@@ -1529,7 +1529,7 @@ value otherwise. If omitted, the elements are sorted in ascending, UTF-16 code u
 
 #### Call Signature
 
-> **splice**(`start`, `deleteCount`?): `T`[]
+> **splice**(`start`, `deleteCount?`): `T`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1399
 
@@ -1619,7 +1619,7 @@ Returns a string representation of an array. The elements are converted to strin
 
 #### Call Signature
 
-> **toLocaleString**(`locales`, `options`?): `string`
+> **toLocaleString**(`locales`, `options?`): `string`
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:64
 
@@ -1665,7 +1665,7 @@ Returns a string representation of an array.
 
 > **unshift**(`item`): `number`
 
-Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/deque.ts#L65)
+Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/deque.ts#L65)
 
 Inserts new elements at the start of an array, and returns the new length of the array.
 
@@ -1737,7 +1737,7 @@ An array-like object to convert to an array.
 
 #### Call Signature
 
-> `static` **from**\<`T`, `U`\>(`arrayLike`, `mapfn`, `thisArg`?): `U`[]
+> `static` **from**\<`T`, `U`\>(`arrayLike`, `mapfn`, `thisArg?`): `U`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:80
 
@@ -1813,7 +1813,7 @@ An iterable object to convert to an array.
 
 #### Call Signature
 
-> `static` **from**\<`T`, `U`\>(`iterable`, `mapfn`, `thisArg`?): `U`[]
+> `static` **from**\<`T`, `U`\>(`iterable`, `mapfn`, `thisArg?`): `U`[]
 
 Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:109
 

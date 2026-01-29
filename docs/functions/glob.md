@@ -6,9 +6,9 @@
 
 # Function: glob()
 
-> **glob**(`filepath`, `pattern`, `rootDir`?): `undefined` \| `boolean`
+> **glob**(`filepath`, `pattern`, `rootDir?`): `boolean` \| `undefined`
 
-Defined in: [src/glob.ts:29](https://github.com/isdk/util.js/blob/f6ac1e1b241d01211870dd55d000c1e9d4daa404/src/glob.ts#L29)
+Defined in: [src/glob.ts:29](https://github.com/isdk/util.js/blob/7adcba7486666eedeab98e54e02046229c8cb7fc/src/glob.ts#L29)
 
 Matches a file path against a list of glob patterns.
 
@@ -38,7 +38,7 @@ An array of glob patterns to match against.
 
 ## Returns
 
-`undefined` \| `boolean`
+`boolean` \| `undefined`
 
 Returns `true` if the `filepath` matches any of the patterns, otherwise `false`.
 
