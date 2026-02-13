@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.5](https://github.com/isdk/util.js/compare/v0.3.4...v0.3.5) (2026-02-13)
+
+
+### Features
+
+* **util:** add omitDeepBy and omitEmptyDeep utilities ([40caefd](https://github.com/isdk/util.js/commit/40caefda2d376f288af37d8babc9da0357d94056))
+
 ## [0.3.4](https://github.com/isdk/util.js/compare/v0.3.3...v0.3.4) (2026-01-29)
 
 ## [0.3.3](https://github.com/isdk/util.js/compare/v0.3.2...v0.3.3) (2025-11-09)
