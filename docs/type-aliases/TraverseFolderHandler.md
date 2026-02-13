@@ -8,7 +8,7 @@
 
 > **TraverseFolderHandler** = (`filePath`, `entry`) => `boolean` \| `void` \| `Promise`\<`boolean` \| `void`\>
 
-Defined in: [src/traverse-folder.ts:11](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/traverse-folder.ts#L11)
+Defined in: [src/traverse-folder.ts:11](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/traverse-folder.ts#L11)
 
 A handler function for asynchronous folder traversal.
 

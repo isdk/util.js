@@ -8,7 +8,7 @@
 
 > **findPort**(`port`, `portRetryCount`): `Promise`\<`number`\>
 
-Defined in: [src/find-port.ts:3](https://github.com/isdk/util.js/blob/1244ecc63e69dca791e24e154694c362d05c92c5/src/find-port.ts#L3)
+Defined in: [src/find-port.ts:3](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/find-port.ts#L3)
 
 ## Parameters
 

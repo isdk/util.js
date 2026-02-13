@@ -51,6 +51,8 @@
 - [isValidFilename](functions/isValidFilename.md)
 - [isValidFilepath](functions/isValidFilepath.md)
 - [normalizeIncludeFiles](functions/normalizeIncludeFiles.md)
+- [omitDeepBy](functions/omitDeepBy.md)
+- [omitEmptyDeep](functions/omitEmptyDeep.md)
 - [parseFrontMatter](functions/parseFrontMatter.md)
 - [parseYaml](functions/parseYaml.md)
 - [RateLimit](functions/RateLimit.md)
