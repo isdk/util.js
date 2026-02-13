@@ -30,4 +30,4 @@ function isEmptyValue(value: unknown): boolean {
  * omitEmptyDeep({ [sym]: "", a: 1 }) // => { a: 1 }
  * ```
  */
-export const omitEmptyDeep = <T>(value: T): any => omitDeepBy(value, isEmptyValue);
+export const omitEmptyDeep = <T>(value: T, omitFunc?: boolean): any => omitDeepBy(value, (v) => isEmptyValue(v) || (omitFunc! && typeof v === 'function') );

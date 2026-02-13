@@ -203,4 +203,20 @@ describe('omitEmptyDeep', () => {
     expect(result.regular).toBe('regular value');
     expect(result.empty).toBeUndefined();
   });
+
+  it('should omit function if specified.', () => {
+    const func = ()=>undefined;
+    const input = {
+      obj: {
+        a: func,
+        b: function() {},
+        c() {},
+      },
+      regular: 'regular value',
+      empty: null
+    };
+
+    const result = omitEmptyDeep(input, true);
+    expect(result).toEqual({regular: 'regular value'})
+  });
 });
