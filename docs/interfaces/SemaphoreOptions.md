@@ -6,7 +6,7 @@
 
 # Interface: SemaphoreOptions
 
-Defined in: [src/async-semaphore.ts:42](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L42)
+Defined in: [src/async-semaphore.ts:42](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L42)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/async-semaphore.ts:42](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **capacity**: `number`
 
-Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L25)
+Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L25)
 
 #### Inherited from
 
@@ -30,7 +30,7 @@ Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **initFn**: () => `any`
 
-Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L22)
+Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L22)
 
 #### Returns
 
@@ -46,7 +46,7 @@ Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **isReadyFn**: [`SemaphoreIsReadyFuncType`](../type-aliases/SemaphoreIsReadyFuncType.md)
 
-Defined in: [src/async-semaphore.ts:44](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L44)
+Defined in: [src/async-semaphore.ts:44](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L44)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/async-semaphore.ts:44](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **maxConcurrency**: `number`
 
-Defined in: [src/async-semaphore.ts:43](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L43)
+Defined in: [src/async-semaphore.ts:43](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L43)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [src/async-semaphore.ts:43](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **pauseFn**: () => `void`
 
-Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L23)
+Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L23)
 
 #### Returns
 
@@ -78,7 +78,7 @@ Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **resumeFn**: () => `void`
 
-Defined in: [src/async-semaphore.ts:24](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L24)
+Defined in: [src/async-semaphore.ts:24](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L24)
 
 #### Returns
 

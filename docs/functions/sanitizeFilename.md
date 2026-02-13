@@ -6,9 +6,9 @@
 
 # Function: sanitizeFilename()
 
-> **sanitizeFilename**(`filename`, `options`): `string`
+> **sanitizeFilename**(`filename`, `options?`): `string`
 
-Defined in: [src/filename.ts:97](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/filename.ts#L97)
+Defined in: [src/filename.ts:97](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L97)
 
 Sanitizes a given filename by replacing invalid characters with a specified replacement character or a default.
 
@@ -20,7 +20,7 @@ Sanitizes a given filename by replacing invalid characters with a specified repl
 
 The filename to sanitize, represented as a string.
 
-### options
+### options?
 
 [`SanitizeFilenameOptions`](../interfaces/SanitizeFilenameOptions.md) = `{}`
 

@@ -6,9 +6,9 @@
 
 # Function: sanitizeFilepath()
 
-> **sanitizeFilepath**(`filepath`, `options`): `string`
+> **sanitizeFilepath**(`filepath`, `options?`): `string`
 
-Defined in: [src/filename.ts:149](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/filename.ts#L149)
+Defined in: [src/filename.ts:149](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L149)
 
 Sanitizes each part of a file path and reassembles it, ensuring the path is valid according to provided options.
 
@@ -20,7 +20,7 @@ Sanitizes each part of a file path and reassembles it, ensuring the path is vali
 
 The file path to sanitize, represented as a string.
 
-### options
+### options?
 
 [`SanitizeFilenameOptions`](../interfaces/SanitizeFilenameOptions.md) = `{}`
 

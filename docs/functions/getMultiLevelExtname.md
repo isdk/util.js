@@ -6,9 +6,9 @@
 
 # Function: getMultiLevelExtname()
 
-> **getMultiLevelExtname**(`filename`, `level`): `string`
+> **getMultiLevelExtname**(`filename`, `level?`): `string`
 
-Defined in: [src/get-multi-level-extname.ts:9](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/get-multi-level-extname.ts#L9)
+Defined in: [src/get-multi-level-extname.ts:9](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/get-multi-level-extname.ts#L9)
 
 Retrieves multi-level file extension
 
@@ -20,7 +20,7 @@ Retrieves multi-level file extension
 
 The file name
 
-### level
+### level?
 
 `number` = `1`
 

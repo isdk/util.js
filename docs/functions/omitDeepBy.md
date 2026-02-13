@@ -6,9 +6,9 @@
 
 # Function: omitDeepBy()
 
-> **omitDeepBy**\<`T`\>(`value`, `predicate`, `cache`): `any`
+> **omitDeepBy**\<`T`\>(`value`, `predicate`, `cache?`): `any`
 
-Defined in: [src/omit-deep-by.ts:92](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/omit-deep-by.ts#L92)
+Defined in: [src/omit-deep-by.ts:92](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/omit-deep-by.ts#L92)
 
 Recursively removes properties from an object or array that satisfy the given predicate condition.
 
@@ -60,7 +60,7 @@ A function that determines whether a property should be removed.
                    - `k`: The key/index of the current value in its parent container
                    Returns `true` to indicate the item should be removed, `false` to keep it.
 
-### cache
+### cache?
 
 `WeakMap`\<`object`, `any`\> = `...`
 

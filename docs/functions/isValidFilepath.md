@@ -8,7 +8,7 @@
 
 > **isValidFilepath**(`filepath`): `boolean`
 
-Defined in: [src/filename.ts:72](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/filename.ts#L72)
+Defined in: [src/filename.ts:72](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L72)
 
 Validates whether the given filepath is valid.
 

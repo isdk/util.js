@@ -8,7 +8,7 @@
 
 > **sleep**(`ms`): `Promise`\<`void`\>
 
-Defined in: [src/sleep.ts:12](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/sleep.ts#L12)
+Defined in: [src/sleep.ts:12](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/sleep.ts#L12)
 
 Suspends execution for a specified number of milliseconds
 

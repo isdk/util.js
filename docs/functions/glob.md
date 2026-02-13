@@ -8,7 +8,7 @@
 
 > **glob**(`filepath`, `pattern`, `rootDir?`): `boolean` \| `undefined`
 
-Defined in: [src/glob.ts:29](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/glob.ts#L29)
+Defined in: [src/glob.ts:29](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/glob.ts#L29)
 
 Matches a file path against a list of glob patterns.
 

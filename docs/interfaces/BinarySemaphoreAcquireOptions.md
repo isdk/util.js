@@ -6,7 +6,7 @@
 
 # Interface: BinarySemaphoreAcquireOptions
 
-Defined in: [src/async-semaphore.ts:28](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L28)
+Defined in: [src/async-semaphore.ts:28](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L28)
 
 ## Extended by
 
@@ -22,4 +22,4 @@ Defined in: [src/async-semaphore.ts:28](https://github.com/isdk/util.js/blob/40c
 
 > `optional` **signal**: `AbortSignal`
 
-Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/40caefda2d376f288af37d8babc9da0357d94056/src/async-semaphore.ts#L29)
+Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L29)
