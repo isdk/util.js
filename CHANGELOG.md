@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.6](https://github.com/isdk/util.js/compare/v0.3.5...v0.3.6) (2026-02-13)
+
+
+### Features
+
+* add omitFunc arg to omitEmptyDeep ([61856e5](https://github.com/isdk/util.js/commit/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec))
+
 ## [0.3.5](https://github.com/isdk/util.js/compare/v0.3.4...v0.3.5) (2026-02-13)
 
 
