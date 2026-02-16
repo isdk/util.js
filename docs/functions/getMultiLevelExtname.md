@@ -8,7 +8,7 @@
 
 > **getMultiLevelExtname**(`filename`, `level?`): `string`
 
-Defined in: [src/get-multi-level-extname.ts:9](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/get-multi-level-extname.ts#L9)
+Defined in: [src/get-multi-level-extname.ts:9](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/get-multi-level-extname.ts#L9)
 
 Retrieves multi-level file extension
 

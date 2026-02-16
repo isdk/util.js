@@ -6,7 +6,7 @@
 
 # Interface: BinarySemaphoreReleaserFunc()
 
-Defined in: [src/async-semaphore.ts:38](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L38)
+Defined in: [src/async-semaphore.ts:38](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L38)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/async-semaphore.ts:38](https://github.com/isdk/util.js/blob/618
 
 > **BinarySemaphoreReleaserFunc**(): `void`
 
-Defined in: [src/async-semaphore.ts:39](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L39)
+Defined in: [src/async-semaphore.ts:39](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L39)
 
 ## Returns
 
@@ -30,7 +30,7 @@ Defined in: [src/async-semaphore.ts:39](https://github.com/isdk/util.js/blob/618
 
 > `optional` **token**: `any`
 
-Defined in: [src/async-semaphore.ts:34](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L34)
+Defined in: [src/async-semaphore.ts:34](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L34)
 
 #### Inherited from
 

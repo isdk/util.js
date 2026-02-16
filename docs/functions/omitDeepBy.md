@@ -8,7 +8,7 @@
 
 > **omitDeepBy**\<`T`\>(`value`, `predicate`, `cache?`): `any`
 
-Defined in: [src/omit-deep-by.ts:92](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/omit-deep-by.ts#L92)
+Defined in: [src/omit-deep-by.ts:92](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/omit-deep-by.ts#L92)
 
 Recursively removes properties from an object or array that satisfy the given predicate condition.
 

@@ -6,7 +6,7 @@
 
 # Interface: SanitizeFilenameOptions
 
-Defined in: [src/filename.ts:83](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L83)
+Defined in: [src/filename.ts:96](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/filename.ts#L96)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/filename.ts:83](https://github.com/isdk/util.js/blob/61856e5b1b
 
 > `optional` **maxLength**: `number`
 
-Defined in: [src/filename.ts:85](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L85)
+Defined in: [src/filename.ts:98](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/filename.ts#L98)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/filename.ts:85](https://github.com/isdk/util.js/blob/61856e5b1b
 
 > `optional` **replacement**: `string`
 
-Defined in: [src/filename.ts:84](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L84)
+Defined in: [src/filename.ts:97](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/filename.ts#L97)

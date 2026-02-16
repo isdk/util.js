@@ -8,7 +8,7 @@
 
 > **toCamelCase**(`str`): `string`
 
-Defined in: [src/to-camel-case.ts:17](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/to-camel-case.ts#L17)
+Defined in: [src/to-camel-case.ts:17](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/to-camel-case.ts#L17)
 
 Converts a string to camelCase.
 

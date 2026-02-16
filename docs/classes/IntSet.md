@@ -6,7 +6,7 @@
 
 # Class: IntSet
 
-Defined in: [src/intset.ts:6](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L6)
+Defined in: [src/intset.ts:6](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L6)
 
 Represents a set of integers using a bit field.
 Each bit in the bit field represents an integer starting from 0,
@@ -18,7 +18,7 @@ where the flag value 0 represents the 0th bit, 1 represents the 1st bit, and so 
 
 > **new IntSet**(`bitField?`): `IntSet`
 
-Defined in: [src/intset.ts:21](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L21)
+Defined in: [src/intset.ts:20](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L20)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/intset.ts:21](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > **add**(`flag`): `IntSet`
 
-Defined in: [src/intset.ts:29](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L29)
+Defined in: [src/intset.ts:28](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L28)
 
 Adds an element to the set.
 
@@ -59,7 +59,7 @@ The flag value representing the bit position to set.
 
 > **clear**(): `IntSet`
 
-Defined in: [src/intset.ts:57](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L57)
+Defined in: [src/intset.ts:56](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L56)
 
 Clears all elements from the set.
 
@@ -73,7 +73,7 @@ Clears all elements from the set.
 
 > **delete**(`flag`): `IntSet`
 
-Defined in: [src/intset.ts:39](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L39)
+Defined in: [src/intset.ts:38](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L38)
 
 Removes an element from the set.
 
@@ -95,7 +95,7 @@ The flag value representing the bit position to set. 0 represents the 0th bit
 
 > **has**(`flag`): `boolean`
 
-Defined in: [src/intset.ts:50](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L50)
+Defined in: [src/intset.ts:49](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L49)
 
 Determines whether an element is in the set.
 
@@ -119,7 +119,7 @@ true if the element is in the set; otherwise, false.
 
 > **toJSON**(): `number`
 
-Defined in: [src/intset.ts:70](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L70)
+Defined in: [src/intset.ts:69](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L69)
 
 #### Returns
 
@@ -131,7 +131,7 @@ Defined in: [src/intset.ts:70](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > **toString**(): `string`
 
-Defined in: [src/intset.ts:66](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L66)
+Defined in: [src/intset.ts:65](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L65)
 
 #### Returns
 
@@ -143,7 +143,7 @@ Defined in: [src/intset.ts:66](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > **valueOf**(): `number`
 
-Defined in: [src/intset.ts:62](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L62)
+Defined in: [src/intset.ts:61](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L61)
 
 #### Returns
 
@@ -155,7 +155,7 @@ Defined in: [src/intset.ts:62](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > `static` **add**(`bitField`, `flag`): `number`
 
-Defined in: [src/intset.ts:12](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L12)
+Defined in: [src/intset.ts:11](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L11)
 
 #### Parameters
 
@@ -177,7 +177,7 @@ Defined in: [src/intset.ts:12](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > `static` **delete**(`bitField`, `flag`): `number`
 
-Defined in: [src/intset.ts:16](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L16)
+Defined in: [src/intset.ts:15](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L15)
 
 #### Parameters
 
@@ -199,7 +199,7 @@ Defined in: [src/intset.ts:16](https://github.com/isdk/util.js/blob/61856e5b1bbb
 
 > `static` **has**(`bitField`, `flag`): `boolean`
 
-Defined in: [src/intset.ts:8](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/intset.ts#L8)
+Defined in: [src/intset.ts:7](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/intset.ts#L7)
 
 #### Parameters
 

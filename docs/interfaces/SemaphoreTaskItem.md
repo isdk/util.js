@@ -6,7 +6,7 @@
 
 # Interface: SemaphoreTaskItem
 
-Defined in: [src/async-semaphore.ts:52](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L52)
+Defined in: [src/async-semaphore.ts:52](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L52)
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: [src/async-semaphore.ts:52](https://github.com/isdk/util.js/blob/618
 
 > **reject**: (`reason?`) => `void`
 
-Defined in: [src/async-semaphore.ts:54](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L54)
+Defined in: [src/async-semaphore.ts:54](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L54)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/async-semaphore.ts:54](https://github.com/isdk/util.js/blob/618
 
 > **resolve**: (`value`) => `void`
 
-Defined in: [src/async-semaphore.ts:53](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L53)
+Defined in: [src/async-semaphore.ts:53](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L53)
 
 #### Parameters
 
@@ -58,7 +58,7 @@ Defined in: [src/async-semaphore.ts:53](https://github.com/isdk/util.js/blob/618
 
 > `optional` **signal**: `AbortSignal`
 
-Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L29)
+Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L29)
 
 #### Inherited from
 
@@ -70,4 +70,4 @@ Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/618
 
 > `optional` **token**: `any`
 
-Defined in: [src/async-semaphore.ts:55](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/async-semaphore.ts#L55)
+Defined in: [src/async-semaphore.ts:55](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L55)

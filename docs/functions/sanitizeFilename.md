@@ -8,7 +8,7 @@
 
 > **sanitizeFilename**(`filename`, `options?`): `string`
 
-Defined in: [src/filename.ts:97](https://github.com/isdk/util.js/blob/61856e5b1bbb9d976eeb1fdfe1a4d88a26997dec/src/filename.ts#L97)
+Defined in: [src/filename.ts:110](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/filename.ts#L110)
 
 Sanitizes a given filename by replacing invalid characters with a specified replacement character or a default.
 
