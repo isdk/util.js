@@ -14,13 +14,13 @@
  * ```
  */
 export function toPascalCase(str: string) {
-  if (!str) return ""; // Handle empty string case
+  if (!str) return '' // Handle empty string case
 
   // Step 1: Split the string into words based on separators (-, _, space)
   const words = str
-    .replace(/[-_ ]+/g, " ") // Replace hyphens, underscores, or spaces with a space
-    .split(" ")
-    .filter(Boolean); // Remove empty strings from the array
+    .replace(/[-_ ]+/g, ' ') // Replace hyphens, underscores, or spaces with a space
+    .split(' ')
+    .filter(Boolean) // Remove empty strings from the array
 
   // Step 2: Capitalize the first letter of each word and join them together
   return words
@@ -28,7 +28,9 @@ export function toPascalCase(str: string) {
       let result = word.charAt(0).toUpperCase()
       word = word.slice(1)
       let i = 0
-      while (/[A-Z]/.test(word[i])) {i++}
+      while (/[A-Z]/.test(word[i])) {
+        i++
+      }
       if (i) {
         result += word.slice(0, i).toLowerCase() + word.slice(i)
       } else {
@@ -37,5 +39,5 @@ export function toPascalCase(str: string) {
 
       return result
     })
-    .join("");
+    .join('')
 }

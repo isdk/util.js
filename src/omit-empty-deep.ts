@@ -1,5 +1,5 @@
-import { isArray, isEmpty, isNil, isPlainObject } from 'lodash-es';
-import { omitDeepBy } from './omit-deep-by';
+import { isArray, isEmpty, isNil, isPlainObject } from 'lodash-es'
+import { omitDeepBy } from './omit-deep-by'
 
 /**
  * Recursively checks if a value is "empty".
@@ -7,11 +7,11 @@ import { omitDeepBy } from './omit-deep-by';
  * @returns true if the value is empty, otherwise false
  */
 function isEmptyValue(value: unknown): boolean {
-  if (isNil(value)) return true;
-  if (typeof value === 'string' && value.trim().length === 0) return true;
-  if (isArray(value) || isPlainObject(value)) return isEmpty(value);
-  return false;
-};
+  if (isNil(value)) return true
+  if (typeof value === 'string' && value.trim().length === 0) return true
+  if (isArray(value) || isPlainObject(value)) return isEmpty(value)
+  return false
+}
 
 /**
  * Deeply removes empty values from objects or arrays, supporting both string and Symbol keys.
@@ -30,4 +30,8 @@ function isEmptyValue(value: unknown): boolean {
  * omitEmptyDeep({ [sym]: "", a: 1 }) // => { a: 1 }
  * ```
  */
-export const omitEmptyDeep = <T>(value: T, omitFunc?: boolean): any => omitDeepBy(value, (v) => isEmptyValue(v) || (omitFunc! && typeof v === 'function') );
+export const omitEmptyDeep = <T>(value: T, omitFunc?: boolean): any =>
+  omitDeepBy(
+    value,
+    (v) => isEmptyValue(v) || (omitFunc! && typeof v === 'function')
+  )

@@ -1,4 +1,4 @@
-import { toPascalCase } from './to-pascal-case';
+import { toPascalCase } from './to-pascal-case'
 /**
  * Converts a string to camelCase.
  *

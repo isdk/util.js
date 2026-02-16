@@ -12,18 +12,18 @@
  * arrayHasAll(['a', 'b', 'c'], ['x', 'y']); // false
  * ```
  */
-export function arrayHasAll<T=any>(array: T[], elements: T[]) {
-  const targetSet = new Set(elements);
-  const foundSet = new Set();
+export function arrayHasAll<T = any>(array: T[], elements: T[]) {
+  const targetSet = new Set(elements)
+  const foundSet = new Set()
 
   for (const item of array) {
     if (targetSet.has(item)) {
-      foundSet.add(item);
+      foundSet.add(item)
       if (foundSet.size === targetSet.size) {
-        return true;
+        return true
       }
     }
   }
 
-  return foundSet.size === targetSet.size;
+  return foundSet.size === targetSet.size
 }

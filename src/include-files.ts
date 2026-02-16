@@ -31,7 +31,10 @@ export interface IncludeFiles {
  * // Output: ['*.ts', '*.js', '!node_modules/**']
  * ```
  */
-export function normalizeIncludeFiles(files?: string[]|IncludeFiles, defaultFiles = []) {
+export function normalizeIncludeFiles(
+  files?: string[] | IncludeFiles,
+  defaultFiles = []
+) {
   if (!files) {
     files = [...defaultFiles]
   } else if (!Array.isArray(files)) {

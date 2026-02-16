@@ -1,17 +1,19 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
 
 export default tseslint.config(
   {
     // must be first
-    ignores: ['dist/'],
+    ignores: ['dist/', '*.cjs'],
   },
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
+    ...prettierConfig,
     // extends: compat.extends('prettier'),
     // files: ['**/*.ts', '**/*.tsx'],
-    extends: ['@antfu', 'prettier'],
+    // extends: ['prettier'],
     rules: {
       'tsdoc/syntax': 'off',
       'no-cond-assign': 'off',
@@ -61,6 +63,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-function-type': 'off',
       '@typescript-eslint/ban-types': 'off',
       'prefer-rest-params': 'off',
+      '@typescript-eslint/no-wrapper-object-types': 'off',
     },
   }
 )

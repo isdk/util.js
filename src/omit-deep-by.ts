@@ -1,4 +1,4 @@
-import { isEmpty, isNil, isObject, isPlainObject } from 'lodash-es';
+import { isEmpty, isNil, isObject, isPlainObject } from 'lodash-es'
 
 /**
  * Recursively removes properties from an object or array that satisfy the given predicate condition.
@@ -96,48 +96,48 @@ export function omitDeepBy<T>(
 ): any {
   // 1. 基本类型直接返回
   if (!isObject(value) || isNil(value)) {
-    return value;
+    return value
   }
 
   // 2. 处理循环引用：如果已处理过该对象，直接返回缓存结果
   if (cache.has(value as object)) {
-    return cache.get(value as object);
+    return cache.get(value as object)
   }
 
-  let result: any;
+  let result: any
 
   // 3. 处理数组
   if (Array.isArray(value)) {
-    result = [];
-    cache.set(value, result); // 必须在递归前存入缓存
+    result = []
+    cache.set(value, result) // 必须在递归前存入缓存
 
     const cleanedArray = value
       .map((item) => omitDeepBy(item, predicate, cache))
-      .filter((item, index) => !predicate(item, index.toString()));
+      .filter((item, index) => !predicate(item, index.toString()))
 
-    Object.assign(result, cleanedArray);
-    return result.length > 0 ? result : undefined;
+    Object.assign(result, cleanedArray)
+    return result.length > 0 ? result : undefined
   }
 
   // 4. 处理纯对象
   if (isPlainObject(value)) {
-    result = {};
-    cache.set(value as object, result);
+    result = {}
+    cache.set(value as object, result)
 
-    const keys = Reflect.ownKeys(value as object) as Array<string | symbol>;
+    const keys = Reflect.ownKeys(value as object) as Array<string | symbol>
 
     for (const key of keys) {
-      const subValue = (value as any)[key];
-      const processed = omitDeepBy(subValue, predicate, cache);
+      const subValue = (value as any)[key]
+      const processed = omitDeepBy(subValue, predicate, cache)
 
       if (!predicate(processed, key)) {
-        result[key] = processed;
+        result[key] = processed
       }
     }
 
-    return isEmpty(result) ? undefined : result;
+    return isEmpty(result) ? undefined : result
   }
 
   // 5. 其他特殊对象（Date, RegExp 等）直接返回原引用
-  return value;
-};
+  return value
+}

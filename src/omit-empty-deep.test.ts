@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { omitEmptyDeep } from './omit-empty-deep';
+import { describe, it, expect } from 'vitest'
+import { omitEmptyDeep } from './omit-empty-deep'
 
 describe('omitEmptyDeep', () => {
   it('should remove null, undefined, and empty string values', () => {
@@ -8,44 +8,44 @@ describe('omitEmptyDeep', () => {
       b: null,
       c: undefined,
       d: '',
-      e: 'value'
-    };
+      e: 'value',
+    }
 
     const expected = {
       a: 1,
-      e: 'value'
-    };
+      e: 'value',
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should remove empty arrays', () => {
     const input = {
       a: [1, 2, 3],
       b: [],
-      c: [null, undefined]
-    };
+      c: [null, undefined],
+    }
 
     const expected = {
       a: [1, 2, 3],
-    };
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should remove empty objects', () => {
     const input = {
       a: { x: 1 },
       b: {},
-      c: { y: null }
-    };
+      c: { y: null },
+    }
 
     const expected = {
-      a: { x: 1 }
-    };
+      a: { x: 1 },
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should handle deeply nested objects', () => {
     const input = {
@@ -61,12 +61,12 @@ describe('omitEmptyDeep', () => {
             g: {
               h: [],
               i: [1, 2, 3],
-              j: {}
-            }
-          }
-        }
-      }
-    };
+              j: {},
+            },
+          },
+        },
+      },
+    }
 
     const expected = {
       level1: {
@@ -77,14 +77,14 @@ describe('omitEmptyDeep', () => {
             f: 'valid',
             g: {
               i: [1, 2, 3],
-            }
-          }
-        }
-      }
-    };
+            },
+          },
+        },
+      },
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should preserve zero and boolean values', () => {
     const input = {
@@ -93,49 +93,40 @@ describe('omitEmptyDeep', () => {
       c: NaN,
       d: false,
       e: true,
-      f: ''
-    };
+      f: '',
+    }
 
     const expected = {
       a: 0,
       b: -0,
       c: NaN,
       d: false,
-      e: true
-    };
+      e: true,
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should handle arrays with mixed content', () => {
-    const input = [
-      1,
-      null,
-      2,
-      undefined,
-      '',
-      'value',
-      { a: 5, b: null },
-      []
-    ];
+    const input = [1, null, 2, undefined, '', 'value', { a: 5, b: null }, []]
 
     const expected = [
       1,
       2,
       'value',
       { a: 5 }, // Object inside array should have empty values removed too
-    ];
+    ]
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should handle primitive values', () => {
-    expect(omitEmptyDeep(null)).toBeNull();
-    expect(omitEmptyDeep(undefined)).toBeUndefined();
-    expect(omitEmptyDeep('')).toBe('');
-    expect(omitEmptyDeep(42)).toBe(42);
-    expect(omitEmptyDeep(true)).toBe(true);
-  });
+    expect(omitEmptyDeep(null)).toBeNull()
+    expect(omitEmptyDeep(undefined)).toBeUndefined()
+    expect(omitEmptyDeep('')).toBe('')
+    expect(omitEmptyDeep(42)).toBe(42)
+    expect(omitEmptyDeep(true)).toBe(true)
+  })
 
   it('should handle edge cases with complex nesting', () => {
     const input = {
@@ -149,17 +140,13 @@ describe('omitEmptyDeep', () => {
                 emptyStr: '',
                 nullVal: null,
                 valid: 'data',
-                arrWithObjects: [
-                  { x: null, y: 1 },
-                  { x: 2, y: null },
-                  {}
-                ]
-              }
-            }
-          }
-        }
-      }
-    };
+                arrWithObjects: [{ x: null, y: 1 }, { x: 2, y: null }, {}],
+              },
+            },
+          },
+        },
+      },
+    }
 
     const expected = {
       a: {
@@ -168,55 +155,52 @@ describe('omitEmptyDeep', () => {
             d: {
               e: {
                 valid: 'data',
-                arrWithObjects: [
-                  { y: 1 },
-                  { x: 2 },
-                ]
-              }
-            }
-          }
-        }
-      }
-    };
+                arrWithObjects: [{ y: 1 }, { x: 2 }],
+              },
+            },
+          },
+        },
+      },
+    }
 
-    expect(omitEmptyDeep(input)).toEqual(expected);
-  });
+    expect(omitEmptyDeep(input)).toEqual(expected)
+  })
 
   it('should return the same type as input for primitives', () => {
-    expect(typeof omitEmptyDeep(42)).toBe('number');
-    expect(typeof omitEmptyDeep('string')).toBe('string');
-    expect(typeof omitEmptyDeep(true)).toBe('boolean');
-    expect(omitEmptyDeep(null)).toBeNull();
-    expect(omitEmptyDeep(undefined)).toBeUndefined();
-  });
+    expect(typeof omitEmptyDeep(42)).toBe('number')
+    expect(typeof omitEmptyDeep('string')).toBe('string')
+    expect(typeof omitEmptyDeep(true)).toBe('boolean')
+    expect(omitEmptyDeep(null)).toBeNull()
+    expect(omitEmptyDeep(undefined)).toBeUndefined()
+  })
 
   it('should handle objects with symbol keys', () => {
-    const sym = Symbol('test');
+    const sym = Symbol('test')
     const input = {
       [sym]: 'symbol value',
       regular: 'regular value',
-      empty: null
-    };
+      empty: null,
+    }
 
-    const result = omitEmptyDeep(input);
-    expect(result[sym]).toBe('symbol value');
-    expect(result.regular).toBe('regular value');
-    expect(result.empty).toBeUndefined();
-  });
+    const result = omitEmptyDeep(input)
+    expect(result[sym]).toBe('symbol value')
+    expect(result.regular).toBe('regular value')
+    expect(result.empty).toBeUndefined()
+  })
 
   it('should omit function if specified.', () => {
-    const func = ()=>undefined;
+    const func = () => undefined
     const input = {
       obj: {
         a: func,
-        b: function() {},
+        b: function () {},
         c() {},
       },
       regular: 'regular value',
-      empty: null
-    };
+      empty: null,
+    }
 
-    const result = omitEmptyDeep(input, true);
-    expect(result).toEqual({regular: 'regular value'})
-  });
-});
+    const result = omitEmptyDeep(input, true)
+    expect(result).toEqual({ regular: 'regular value' })
+  })
+})

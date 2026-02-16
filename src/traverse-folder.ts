@@ -1,6 +1,6 @@
-import { readdir } from 'fs/promises';
-import { type Dirent, readdirSync } from 'fs';
-import path from 'path';
+import { readdir } from 'fs/promises'
+import { type Dirent, readdirSync } from 'fs'
+import path from 'path'
 
 /**
  * A handler function for asynchronous folder traversal.
@@ -8,14 +8,20 @@ import path from 'path';
  * @param entry - The directory entry (file or folder).
  * @returns Returns `true` to stop further traversal, or `false`/`void` to continue.
  */
-export type TraverseFolderHandler = (filePath: string, entry: Dirent) => boolean|void|Promise<boolean|void>;
+export type TraverseFolderHandler = (
+  filePath: string,
+  entry: Dirent
+) => boolean | void | Promise<boolean | void>
 /**
  * A handler function for synchronous folder traversal.
  * @param filePath - The full path of the file or directory.
  * @param entry - The directory entry (file or folder).
  * @returns Returns `true` to stop further traversal, or `false` to continue.
  */
-export type TraverseFolderSyncHandler = (filePath: string, entry: Dirent) => boolean|void;
+export type TraverseFolderSyncHandler = (
+  filePath: string,
+  entry: Dirent
+) => boolean | void
 
 /**
  * Traverses a folder asynchronously and applies a handler to each file or directory.
@@ -35,22 +41,29 @@ export type TraverseFolderSyncHandler = (filePath: string, entry: Dirent) => boo
  * });
  * ```
  */
-export async function traverseFolder(directoryPath: string, fileHandler: TraverseFolderHandler) {
-  const files = await readdir(directoryPath, { withFileTypes: true });
+export async function traverseFolder(
+  directoryPath: string,
+  fileHandler: TraverseFolderHandler
+) {
+  const files = await readdir(directoryPath, { withFileTypes: true })
 
   for (const entry of files) {
-    const filePath = path.join(directoryPath, entry.name);
+    const filePath = path.join(directoryPath, entry.name)
     try {
       if (entry.isDirectory()) {
-        const stopped = await fileHandler(filePath, entry);
-        if (!stopped) {await traverseFolder(filePath, fileHandler);}
+        const stopped = await fileHandler(filePath, entry)
+        if (!stopped) {
+          await traverseFolder(filePath, fileHandler)
+        }
       } else {
-        const stopped = await fileHandler(filePath, entry);
-        if (stopped === true) {break}
+        const stopped = await fileHandler(filePath, entry)
+        if (stopped === true) {
+          break
+        }
       }
     } catch (err) {
-      console.error(`Error processing file: ${filePath}`);
-      console.error(err);
+      console.error(`Error processing file: ${filePath}`)
+      console.error(err)
     }
   }
 }
@@ -73,22 +86,29 @@ export async function traverseFolder(directoryPath: string, fileHandler: Travers
  * });
  * ```
  */
-export function traverseFolderSync(directoryPath: string, fileHandler: TraverseFolderSyncHandler) {
-  const files = readdirSync(directoryPath, { withFileTypes: true });
+export function traverseFolderSync(
+  directoryPath: string,
+  fileHandler: TraverseFolderSyncHandler
+) {
+  const files = readdirSync(directoryPath, { withFileTypes: true })
 
   for (const entry of files) {
-    const filePath = path.join(directoryPath, entry.name);
+    const filePath = path.join(directoryPath, entry.name)
     try {
       if (entry.isDirectory()) {
-        const stopped = fileHandler(filePath, entry);
-        if (!stopped) {traverseFolder(filePath, fileHandler);}
+        const stopped = fileHandler(filePath, entry)
+        if (!stopped) {
+          traverseFolder(filePath, fileHandler)
+        }
       } else {
-        const stopped = fileHandler(filePath, entry);
-        if (stopped === true) {break}
+        const stopped = fileHandler(filePath, entry)
+        if (stopped === true) {
+          break
+        }
       }
     } catch (err) {
-      console.error(`Error processing file: ${filePath}`);
-      console.error(err);
+      console.error(`Error processing file: ${filePath}`)
+      console.error(err)
     }
   }
 }

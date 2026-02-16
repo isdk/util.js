@@ -1,4 +1,4 @@
-import { AbortError } from "@isdk/common-error";
+import { AbortError } from '@isdk/common-error'
 
 /**
  * An asynchronous signal gate that blocks operations until a signal is emitted.
@@ -18,15 +18,15 @@ import { AbortError } from "@isdk/common-error";
  * ```
  */
 export class SignalGate<T = void> {
-  protected _isSignaled = false;
-  protected _signalValue: T | undefined;
+  protected _isSignaled = false
+  protected _signalValue: T | undefined
   protected waitQueue: Array<{
-    resolve: (value: T) => void;
-    reject: (error: any) => void;
-  }> = [];
+    resolve: (value: T) => void
+    reject: (error: any) => void
+  }> = []
 
   get signaled() {
-    return this._isSignaled;
+    return this._isSignaled
   }
 
   /**
@@ -36,14 +36,14 @@ export class SignalGate<T = void> {
    * @param value The value to emit with the signal (only required if T is not void).
    */
   signal(value?: T) {
-    if (this._isSignaled) return;
-    this._isSignaled = true;
-    this._signalValue = value as T;
-    const queue = this.waitQueue.slice();
-    this.waitQueue.length = 0;
+    if (this._isSignaled) return
+    this._isSignaled = true
+    this._signalValue = value as T
+    const queue = this.waitQueue.slice()
+    this.waitQueue.length = 0
     while (queue.length > 0) {
-      const item = queue.shift();
-      item?.resolve(this._signalValue!);
+      const item = queue.shift()
+      item?.resolve(this._signalValue!)
     }
   }
 
@@ -51,9 +51,9 @@ export class SignalGate<T = void> {
    * Resets the gate to its initial state, allowing a new signal to be emitted.
    */
   reset() {
-    this._isSignaled = false;
-    this._signalValue = undefined;
-    this.waitQueue.length = 0;
+    this._isSignaled = false
+    this._signalValue = undefined
+    this.waitQueue.length = 0
   }
 
   /**
@@ -64,12 +64,12 @@ export class SignalGate<T = void> {
    */
   abort(reason?: any) {
     if (this.waitQueue.length) {
-      const queue = this.waitQueue.slice();
-      this.waitQueue.length = 0;
-      const error = new AbortError(reason);
+      const queue = this.waitQueue.slice()
+      this.waitQueue.length = 0
+      const error = new AbortError(reason)
       while (queue.length > 0) {
-        const { reject } = queue.shift()!;
-        reject(error);
+        const { reject } = queue.shift()!
+        reject(error)
       }
     }
   }
@@ -83,10 +83,10 @@ export class SignalGate<T = void> {
   async wait(): Promise<T> {
     return new Promise((resolve, reject) => {
       if (this._isSignaled) {
-        resolve(this._signalValue!);
+        resolve(this._signalValue!)
       } else {
-        this.waitQueue.push({ resolve, reject });
+        this.waitQueue.push({ resolve, reject })
       }
-    });
+    })
   }
 }

@@ -1,6 +1,17 @@
 import { parse, stringify } from 'yaml'
 
-import type { CollectionTag, CreateNodeOptions, DocumentOptions, ParseOptions, ScalarTag, SchemaOptions, TagId, Tags, ToJSOptions, ToStringOptions } from 'yaml'
+import type {
+  CollectionTag,
+  CreateNodeOptions,
+  DocumentOptions,
+  ParseOptions,
+  ScalarTag,
+  SchemaOptions,
+  TagId,
+  Tags,
+  ToJSOptions,
+  ToStringOptions,
+} from 'yaml'
 
 const YamlTags: Tags = []
 
@@ -20,13 +31,17 @@ const YamlTags: Tags = []
  * registerYamlTag(customTag);
  * ```
  */
-export function registerYamlTag(tags: ScalarTag | CollectionTag | TagId | Tags) {
+export function registerYamlTag(
+  tags: ScalarTag | CollectionTag | TagId | Tags
+) {
   if (!Array.isArray(tags)) {
     tags = [tags]
   }
   for (const tag of tags) {
     const result = YamlTags.indexOf(tag) === -1
-    if (result) { YamlTags.push(tag) }
+    if (result) {
+      YamlTags.push(tag)
+    }
   }
 }
 
@@ -48,9 +63,12 @@ export function registerYamlTag(tags: ScalarTag | CollectionTag | TagId | Tags) 
  * console.log(result); // { example: 'resolved-value' }
  * ```
  */
-export function parseYaml(content: string, options?: ParseOptions & DocumentOptions & SchemaOptions & ToJSOptions) {
+export function parseYaml(
+  content: string,
+  options?: ParseOptions & DocumentOptions & SchemaOptions & ToJSOptions
+) {
   if (!options) {
-    options = {customTags: YamlTags}
+    options = { customTags: YamlTags }
   } else {
     if (!options.customTags) {
       options.customTags = YamlTags
@@ -58,7 +76,7 @@ export function parseYaml(content: string, options?: ParseOptions & DocumentOpti
       options.customTags = YamlTags.concat(options.customTags)
     } else if (typeof options.customTags === 'function') {
       const customTags = options.customTags
-      options.customTags = (tags)=> customTags(YamlTags.concat(tags))
+      options.customTags = (tags) => customTags(YamlTags.concat(tags))
     }
   }
   return parse(content, options)
@@ -82,9 +100,16 @@ export function parseYaml(content: string, options?: ParseOptions & DocumentOpti
  * console.log(yamlString); // "example: value\n"
  * ```
  */
-export function stringifyYaml(content: any, options?: DocumentOptions & SchemaOptions & ParseOptions & CreateNodeOptions & ToStringOptions) {
+export function stringifyYaml(
+  content: any,
+  options?: DocumentOptions &
+    SchemaOptions &
+    ParseOptions &
+    CreateNodeOptions &
+    ToStringOptions
+) {
   if (!options) {
-    options = {customTags: YamlTags}
+    options = { customTags: YamlTags }
   } else {
     if (!options.customTags) {
       options.customTags = YamlTags
@@ -92,7 +117,7 @@ export function stringifyYaml(content: any, options?: DocumentOptions & SchemaOp
       options.customTags = YamlTags.concat(options.customTags)
     } else if (typeof options.customTags === 'function') {
       const customTags = options.customTags
-      options.customTags = (tags)=> customTags(YamlTags.concat(tags))
+      options.customTags = (tags) => customTags(YamlTags.concat(tags))
     }
   }
   return stringify(content, options)

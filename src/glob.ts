@@ -1,5 +1,5 @@
-import { globMatch } from '@isdk/glob';
-import path from 'path';
+import { globMatch } from '@isdk/glob'
+import path from 'path'
 
 /**
  * Matches a file path against a list of glob patterns.

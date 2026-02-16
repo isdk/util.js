@@ -61,9 +61,15 @@ export class ConfigFile {
    * ConfigFile.register(['.json'], JSON.parse, (obj) => JSON.stringify(obj, null, 2));
    * ```
    */
-  static register(extname: string|string[], parser: (content: string)=>any, stringify: StringifyFunc) {
+  static register(
+    extname: string | string[],
+    parser: (content: string) => any,
+    stringify: StringifyFunc
+  ) {
     LoadConfigFile.register(extname, parser)
-    if (typeof extname === 'string') {extname = [extname]}
+    if (typeof extname === 'string') {
+      extname = [extname]
+    }
     for (const ext of extname) {
       this.stringifys[ext] = stringify
     }
@@ -99,7 +105,11 @@ export class ConfigFile {
    * ConfigFile.saveSync('config.json', { key: 'value' });
    * ```
    */
-  static saveSync(filename: string, config: any, options?: LoadConfigFileOptions) {
+  static saveSync(
+    filename: string,
+    config: any,
+    options?: LoadConfigFileOptions
+  ) {
     return saveConfigFile(filename, config, options)
   }
 
@@ -139,28 +149,36 @@ ConfigFile.register(['.yml', '.yaml'], parseYaml, stringifyYaml)
 ConfigFile.register(['.json'], parseJson, (obj) => JSON.stringify(obj, null, 2))
 
 function normalizeYamlFilename(filename: string, extLevel = 1) {
-  if (filename[0] === '.') {extLevel++}
+  if (filename[0] === '.') {
+    extLevel++
+  }
   let extname = getMultiLevelExtname(filename, extLevel)
-  if (!extname || (extname.split('.').length <= 1)) {
+  if (!extname || extname.split('.').length <= 1) {
     filename += '.yaml'
     extname = '.yaml'
   }
-  const result = new String(filename) as String & {extname: string}
+  const result = new String(filename) as string & { extname: string }
   result.extname = extname
   return result
 }
 
 function normalizeFilenameWithoutExt(filename: string, extLevel: number = 1) {
-  if (filename[0] === '.') {extLevel++}
+  if (filename[0] === '.') {
+    extLevel++
+  }
   const extname = getMultiLevelExtname(filename, extLevel)
-  if (extname && (extname.split('.').length > 1)) {
+  if (extname && extname.split('.').length > 1) {
     // remove the extension
     filename = filename.slice(0, -extname.length)
   }
-  return filename;
+  return filename
 }
 
-function saveConfigFile(filename: string, config: any, {extLevel = 1}: LoadConfigFileOptions = {}) {
+function saveConfigFile(
+  filename: string,
+  config: any,
+  { extLevel = 1 }: LoadConfigFileOptions = {}
+) {
   const _filename = normalizeYamlFilename(filename, extLevel)
   const extname = _filename.extname
   filename = _filename.toString()
@@ -174,13 +192,16 @@ function saveConfigFile(filename: string, config: any, {extLevel = 1}: LoadConfi
 
   const dirname = path.dirname(filename)
   if (!existsSync(dirname)) {
-    mkdirSync(dirname, {recursive: true})
+    mkdirSync(dirname, { recursive: true })
   }
-  writeFileSync(filename, config, {encoding: 'utf8'})
+  writeFileSync(filename, config, { encoding: 'utf8' })
   return filename
 }
 
-function loadConfigFile(filename: string, {extLevel = 1, externalFile}: LoadConfigFileOptions = {}) {
+function loadConfigFile(
+  filename: string,
+  { extLevel = 1, externalFile }: LoadConfigFileOptions = {}
+) {
   filename = normalizeFilenameWithoutExt(filename, extLevel)
 
   let result = LoadConfigFile.loadSync(filename)

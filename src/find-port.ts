@@ -1,17 +1,24 @@
 import net from 'net'
 
-export async function findPort(port: string|number, portRetryCount = 10): Promise<number> {
+export async function findPort(
+  port: string | number,
+  portRetryCount = 10
+): Promise<number> {
   return new Promise((resolve, reject) => {
     if (port === undefined) {
       port = 0
     } else {
-      if (typeof port === 'string') {port = parseInt(port)}
-      if (!(port >= 0)) {port = 0}
+      if (typeof port === 'string') {
+        port = parseInt(port)
+      }
+      if (!(port >= 0)) {
+        port = 0
+      }
     }
-    const server = net.createServer();
+    const server = net.createServer()
     server.on('error', (err: any) => {
       if (err.code === 'EADDRINUSE') {
-        (port as number)++
+        ;(port as number)++
         portRetryCount--
         if (portRetryCount > 0) {
           server.listen(port)
@@ -22,8 +29,8 @@ export async function findPort(port: string|number, portRetryCount = 10): Promis
     })
     server.on('listening', async () => {
       const addr = server.address() as net.AddressInfo
-      const result = addr.port;
-      server.close((err: any)=>{
+      const result = addr.port
+      server.close((err: any) => {
         if (err) {
           reject(err)
         } else {
@@ -31,6 +38,6 @@ export async function findPort(port: string|number, portRetryCount = 10): Promis
         }
       })
     })
-    server.listen(port);
+    server.listen(port)
   })
 }

@@ -55,7 +55,7 @@ date: 2022-01-01
 
   it('should return null if no delimiter is found', () => {
     const input = `This is the body`
-    const expectedOutput = {data: {}, content: input}
+    const expectedOutput = { data: {}, content: input }
     const result = parseFrontMatter(input)
     expect(result).toEqual(expectedOutput)
   })
@@ -80,7 +80,7 @@ This is the body
 ---
 second line`
     const expectedOutput = {
-      data: {content: 'hi'},
+      data: { content: 'hi' },
       content: 'This is the body\n---\nsecond line',
     }
     const result = parseFrontMatter(input)

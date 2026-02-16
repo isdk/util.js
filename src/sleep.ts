@@ -10,7 +10,7 @@
  * for longer durations than `setImmediate`-based approaches
  */
 export async function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 /**
@@ -26,7 +26,7 @@ export async function sleep(ms: number): Promise<void> {
  * Particularly useful for breaking up long synchronous operations in Node.js.
  */
 export async function yieldExec(): Promise<void> {
-  return new Promise<void>(resolve => {
-    setImmediate(resolve);
-  });
+  return new Promise<void>((resolve) => {
+    setImmediate(resolve)
+  })
 }

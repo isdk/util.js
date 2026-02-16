@@ -8,7 +8,8 @@ import path from 'path'
  */
 export function getMultiLevelExtname(filename: string, level: number = 1) {
   let result = '' // Initialize the result string for storing extensions
-  while (level--) { // Decrement level and loop until the specified level is reached
+  while (level--) {
+    // Decrement level and loop until the specified level is reached
     const extname = path.extname(filename) // Get the current file's extension
     if (extname) {
       result = extname + result // Prepend the current extension to the result string
