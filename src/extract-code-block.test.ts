@@ -66,6 +66,98 @@ console.log("backticks");
     expect(result.lang).toBe('ts')
   })
 
+  it('should support language aliases', () => {
+    const input = `
+\`\`\`javascript
+console.log("js");
+\`\`\`
+\`\`\`ts
+console.log("ts");
+\`\`\`
+`
+    // Request 'js', should match 'javascript' block
+    let result: any = extractCodeBlock(input, 'js')
+    expect(result.toString()).toBe('console.log("js");\n')
+    expect(result.lang).toBe('javascript')
+
+    // Request 'javascript', should match 'javascript' block
+    result = extractCodeBlock(input, 'javascript')
+    expect(result.toString()).toBe('console.log("js");\n')
+
+    const input2 = '```js\nconsole.log("js");\n```'
+    // Request 'javascript', should match 'js' block
+    result = extractCodeBlock(input2, 'javascript')
+    expect(result.toString()).toBe('console.log("js");\n')
+    expect(result.lang).toBe('js')
+
+    const input3 = '```bash\necho 1\n```'
+    // Request 'sh', should match 'bash' block
+    result = extractCodeBlock(input3, 'sh')
+    expect(result.toString()).toBe('echo 1\n')
+    expect(result.lang).toBe('bash')
+  })
+
+  it('should support language aliases with "all" option', () => {
+    const input = `
+\`\`\`js
+console.log(1);
+\`\`\`
+\`\`\`javascript
+console.log(2);
+\`\`\`
+\`\`\`ts
+console.log(3);
+\`\`\`
+`
+    const result = extractCodeBlock(input, { lang: 'js', all: true }) as any[]
+    expect(result).toHaveLength(2)
+    expect(result[0].toString()).toBe('console.log(1);\n')
+    expect(result[1].toString()).toBe('console.log(2);\n')
+    expect(result[0].lang).toBe('js')
+    expect(result[1].lang).toBe('javascript')
+  })
+
+  it('should support language aliases with "index" option', () => {
+    const input = `
+\`\`\`js
+console.log(1);
+\`\`\`
+\`\`\`javascript
+console.log(2);
+\`\`\`
+`
+    const result: any = extractCodeBlock(input, {
+      lang: 'javascript',
+      index: 0,
+    })
+    expect(result.toString()).toBe('console.log(1);\n')
+    expect(result.lang).toBe('js')
+
+    const result2: any = extractCodeBlock(input, { lang: 'js', index: 1 })
+    expect(result2.toString()).toBe('console.log(2);\n')
+    expect(result2.lang).toBe('javascript')
+  })
+
+  it('should support custom langMap option', () => {
+    const input = '```custom\ncustom code\n```'
+    // Map 'my-custom' to 'custom'
+    const result: any = extractCodeBlock(input, {
+      lang: 'my-custom',
+      langMap: { 'my-custom': 'custom' },
+    })
+    expect(result.toString()).toBe('custom code\n')
+    expect(result.lang).toBe('custom')
+
+    // Override existing mapping: map 'js' to 'typescript' (weird but for testing)
+    const input2 = '```ts\nconst x = 1;\n```'
+    const result2: any = extractCodeBlock(input2, {
+      lang: 'js',
+      langMap: { js: 'ts' },
+    })
+    expect(result2.toString()).toBe('const x = 1;\n')
+    expect(result2.lang).toBe('ts')
+  })
+
   it('should extract empty code block as just a newline', () => {
     const input = '```js\n```'
     const result: any = extractCodeBlock(input, 'js')

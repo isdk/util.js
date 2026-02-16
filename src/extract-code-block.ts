@@ -36,6 +36,36 @@ export interface ExtractCodeBlockOptions {
    * Optional. If true, returns an array of all matching code blocks.
    */
   all?: boolean
+  /**
+   * Optional. A map of language aliases to their normalized names.
+   */
+  langMap?: Record<string, string>
+}
+
+const LANGUAGE_MAP: Record<string, string> = {
+  javascript: 'js',
+  jsx: 'js',
+  typescript: 'ts',
+  tsx: 'ts',
+  markdown: 'md',
+  python: 'py',
+  ruby: 'rb',
+  bash: 'sh',
+  zsh: 'sh',
+  shell: 'sh',
+  yaml: 'yml',
+  golang: 'go',
+  rust: 'rs',
+  'c#': 'cs',
+  csharp: 'cs',
+  'c++': 'cpp',
+}
+
+function normalizeLanguage(lang?: string, customMap?: Record<string, string>) {
+  if (!lang) return lang
+  const l = lang.toLowerCase()
+  if (customMap && l in customMap) return customMap[l]
+  return LANGUAGE_MAP[l] || l
 }
 
 /**
@@ -44,12 +74,15 @@ export interface ExtractCodeBlockOptions {
  * This function supports both triple-backtick (```) and triple-tilde (~~~) fenced code block
  * syntaxes as commonly used in Markdown.
  *
+ * It supports common language aliases (e.g., 'javascript' matches 'js').
+ *
  * @example
  * ```ts
- * const input = 'Intro\n```js\nconsole.log("hello");\n```\nOutro';
+ * const input = 'Intro\n```javascript\nconsole.log("hello");\n```\nOutro';
+ * // 'js' matches 'javascript' block
  * const code = extractCodeBlock(input, 'js');
  * console.log(code);        // 'console.log("hello");'
- * console.log(code.lang);   // 'js'
+ * console.log(code.lang);   // 'javascript'
  * ```
  *
  * @param text - The input string that may contain one or more fenced code blocks.
@@ -72,13 +105,21 @@ export function extractCodeBlock(
  * const first = extractCodeBlock(input, { index: 0 }); // '1\n' (js)
  * // Get all blocks
  * const all = extractCodeBlock(input, { all: true }); // ['1\n' (js), '2\n' (ts)]
+ *
+ * // Use custom language mapping
+ * const customInput = '```custom\ncode\n```';
+ * const custom = extractCodeBlock(customInput, {
+ *   lang: 'my-lang',
+ *   langMap: { 'my-lang': 'custom' }
+ * });
  * ```
  *
  * @param text - The input string that may contain one or more fenced code blocks.
  * @param options - Optional. Extraction options:
- *                  - `lang`: Filter by language (case-insensitive).
+ *                  - `lang`: Filter by language (case-insensitive). Supports aliases.
  *                  - `index`: The index of the block to extract. `-1` is the last one (default).
  *                  - `all`: If `true`, returns an array of all matching blocks.
+ *                  - `langMap`: Optional custom language alias mapping.
  * @returns If `options.all` is true, returns an array of {@link CodeString} or string.
  *          Otherwise, returns a single {@link CodeString} or the original `text` if no match is found at the specified index.
  */
@@ -94,7 +135,8 @@ export function extractCodeBlock(
     typeof langOrOptions === 'string'
       ? { lang: langOrOptions }
       : (langOrOptions ?? {})
-  const { lang, index = -1, all } = options
+  const { lang, index = -1, all, langMap } = options
+  const targetLang = normalizeLanguage(lang, langMap)
 
   const _text = text.trim()
   const regex =
@@ -104,7 +146,7 @@ export function extractCodeBlock(
   let matched: RegExpExecArray | null
   while ((matched = regex.exec(_text)) !== null) {
     const _lang = matched.groups?.lang?.toLowerCase()
-    if (!lang || lang === _lang) {
+    if (!targetLang || targetLang === normalizeLanguage(_lang, langMap)) {
       let code: CodeString | string = matched.groups!.code
       if (matched.groups!.lang || matched.groups!.meta) {
         const codeString = new String(code) as CodeString
