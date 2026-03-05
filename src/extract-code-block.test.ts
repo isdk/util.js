@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { type CodeString, extractCodeBlock } from './extract-code-block'
+import { type CodeString, extractCodeBlock, extractTopLevelCodeBlocks } from './extract-code-block'
 
 function hasLang(val: unknown): val is { lang: string } {
   return typeof val === 'object' && val !== null && 'lang' in val
@@ -23,7 +23,7 @@ console.log(1);
 const x: number = 1;
 \`\`\`
 `
-    const result: CodeString = extractCodeBlock(input)
+    const result: CodeString = extractCodeBlock(input) as CodeString
     expect(result instanceof String).toBe(true)
     expect(result.toString()).toBe('const x: number = 1;\n')
     expect(hasLang(result)).toBe(true)
@@ -32,7 +32,7 @@ const x: number = 1;
 
   it('should extract matching language block (case-insensitive)', () => {
     const input = '```JS\nalert("hi");\n```'
-    const result: CodeString = extractCodeBlock(input, 'js')
+    const result: CodeString = extractCodeBlock(input, 'js') as CodeString
     expect(result instanceof String).toBe(true)
     expect(result.toString()).toBe('alert("hi");\n')
     expect(result.lang).toBe('js')
@@ -168,7 +168,7 @@ console.log(2);
 
   it('should preserve multiple lines exactly', () => {
     const input = '```ts\nline1\nline2\n```'
-    const result: CodeString = extractCodeBlock(input)
+    const result = extractCodeBlock(input) as CodeString
     expect(result.toString()).toBe('line1\nline2\n')
     expect(result.lang).toBe('ts')
   })
@@ -183,7 +183,7 @@ console.log(2);
 
   it('should normalize lang tag to first word and lowercase', () => {
     const input = '```TS twoslash\nx();\n```'
-    const result: CodeString = extractCodeBlock(input, 'ts')
+    const result: CodeString = extractCodeBlock(input, 'ts') as CodeString
     expect(result instanceof String).toBe(true)
     expect(result.toString()).toBe('x();\n')
     expect(result.lang).toBe('ts')
@@ -335,6 +335,220 @@ console.log(2);
       }) as any[]
 
       expect(result).toEqual([])
+    })
+  })
+
+  describe('nested blocks and selectors', () => {
+    it('should extract top-level blocks correctly when nested (longer fence)', () => {
+      const input = `
+\`\`\`\`md
+\`\`\`ts
+const x = 1;
+\`\`\`
+\`\`\`\`
+`
+      const results = extractTopLevelCodeBlocks(input)
+      expect(results).toHaveLength(1)
+      expect((results[0] as CodeString).lang).toBe('md')
+      expect(results[0].toString()).toContain('\`\`\`ts')
+    })
+
+    it('should support simple path selector "md > ts"', () => {
+      const input = `
+\`\`\`\`md
+\`\`\`ts
+const nested = true;
+\`\`\`
+\`\`\`\`
+`
+      const result = extractCodeBlock(input, 'md > ts') as CodeString
+      expect(result.lang).toBe('ts')
+      expect(result.toString()).toBe('const nested = true;\n')
+    })
+
+    it('should support multi-level path selector "a > b > c"', () => {
+      const input = `
+\`\`\`\`\`a
+  \`\`\`\`b
+    \`\`\`c
+    deep
+    \`\`\`
+  \`\`\`\`
+\`\`\`\`\`
+`
+      const result = extractCodeBlock(input, 'a > b > c') as CodeString
+      expect(result.lang).toBe('c')
+      expect(result.toString().trim()).toBe('deep')
+    })
+
+    it('should apply global index correctly with selectors', () => {
+      const input = `
+\`\`\`\`md
+  \`\`\`ts
+  first
+  \`\`\`
+\`\`\`\`
+\`\`\`\`md
+  \`\`\`ts
+  second
+  \`\`\`
+\`\`\`\`
+`
+      // Get the first ts block across all md blocks
+      const first = extractCodeBlock(input, {
+        lang: 'md > ts',
+        index: 0,
+      }) as CodeString
+      expect(first.toString().trim()).toBe('first')
+
+      // Get the last ts block across all md blocks
+      const last = extractCodeBlock(input, {
+        lang: 'md > ts',
+        index: -1,
+      }) as CodeString
+      expect(last.toString().trim()).toBe('second')
+    })
+
+    it('should return all matching nested blocks with "all: true"', () => {
+      const input = `
+\`\`\`\`container
+  \`\`\`item
+  1
+  \`\`\`
+  \`\`\`item
+  2
+  \`\`\`
+\`\`\`\`
+`
+      const results = extractCodeBlock(input, {
+        lang: 'container > item',
+        all: true,
+      }) as any[]
+      expect(results).toHaveLength(2)
+      expect(results[0].toString().trim()).toBe('1')
+      expect(results[1].toString().trim()).toBe('2')
+    })
+
+    it('should handle aliases in selectors', () => {
+      const input = `
+\`\`\`\`markdown
+\`\`\`typescript
+const x = 1;
+\`\`\`
+\`\`\`\`
+`
+      // md is alias for markdown, ts is alias for typescript
+      const result = extractCodeBlock(input, 'md > ts') as CodeString
+      expect(result.lang).toBe('typescript')
+      expect(result.toString()).toContain('const x = 1;')
+    })
+
+    it('should return original text if selector path is not found', () => {
+      const input = '```md\nno ts here\n```'
+      const result = extractCodeBlock(input, 'md > ts')
+      expect(result).toBe(input)
+    })
+
+    it('should handle different fence types in nesting (backticks and tildes)', () => {
+      const input = `
+~~~~~md
+\`\`\`\`ts
+nested
+\`\`\`\`
+~~~~~
+`
+      const result = extractCodeBlock(input, 'md > ts') as CodeString
+      expect(result.toString().trim()).toBe('nested')
+    })
+
+    it('should handle empty intermediate blocks', () => {
+      const input = '````md\n````'
+      const result = extractCodeBlock(input, 'md > ts')
+      expect(result).toBe(input)
+    })
+
+    it('should preserve metadata in nested blocks', () => {
+      const input = `
+\`\`\`\`md
+  \`\`\`ts {1-5}
+  const x = 1;
+  \`\`\`
+\`\`\`\`
+`
+      const result = extractCodeBlock(input, 'md > ts') as CodeString
+      expect(result.lang).toBe('ts')
+      expect(result.meta).toBe('{1-5}')
+    })
+
+    it('should handle "md > md" (self-nested type)', () => {
+      const input = `
+\`\`\`\`md
+Outer
+  \`\`\`md
+  Inner
+  \`\`\`
+\`\`\`\`
+`
+      const result = extractCodeBlock(input, 'md > md') as CodeString
+      expect(result.toString().trim()).toBe('Inner')
+    })
+
+    it('should return original text when intermediate path fails', () => {
+      const input = `
+\`\`\`\`a
+  no b here
+\`\`\`\`
+`
+      const result = extractCodeBlock(input, 'a > b > c')
+      expect(result).toBe(input)
+    })
+
+    it('should correctly handle mixed fence lengths and types', () => {
+      const input = `
+~~~~~top
+  \`\`\`\`mid
+    ~~~bot
+    content
+    ~~~
+  \`\`\`\`
+~~~~~
+`
+      const result = extractCodeBlock(input, 'top > mid > bot') as CodeString
+      expect(result.toString().trim()).toBe('content')
+      expect(result.lang).toBe('bot')
+    })
+
+    it('should find all blocks in a complex parallel structure', () => {
+      const input = `
+\`\`\`\`group
+  \`\`\`item
+  A1
+  \`\`\`
+  \`\`\`item
+  A2
+  \`\`\`
+\`\`\`\`
+\`\`\`\`group
+  \`\`\`item
+  B1
+  \`\`\`
+\`\`\`\`
+`
+      const results = extractCodeBlock(input, {
+        lang: 'group > item',
+        all: true,
+      }) as any[]
+      expect(results).toHaveLength(3)
+      const contents = results.map(r => r.toString().trim())
+      expect(contents).toEqual(['A1', 'A2', 'B1'])
+    })
+
+    it('should extractTopLevelCodeBlocks directly with multiple matches', () => {
+      const input = '\`\`\`js\n1\n\`\`\`\n\`\`\`js\n2\n\`\`\`'
+      const results = extractTopLevelCodeBlocks(input, { lang: 'js' })
+      expect(results).toHaveLength(2)
+      expect(results[0].toString().trim()).toBe('1')
+      expect(results[1].toString().trim()).toBe('2')
     })
   })
 })

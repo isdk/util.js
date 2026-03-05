@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [0.3.7](https://github.com/isdk/util.js/compare/v0.3.6...v0.3.7) (2026-02-16)
 
-
 ### Features
 
-* **extract-code-block:** add index and all options to support specific or all block extraction ([20d4878](https://github.com/isdk/util.js/commit/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e))
+- **extract-code-block:** add index and all options to support specific or all block extraction ([20d4878](https://github.com/isdk/util.js/commit/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e))
 
 ## [0.3.6](https://github.com/isdk/util.js/compare/v0.3.5...v0.3.6) (2026-02-13)
 
