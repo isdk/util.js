@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.8](https://github.com/isdk/util.js/compare/v0.3.7...v0.3.8) (2026-03-05)
+
+
+### Features
+
+* **extract-code-block:** add language alias support and custom langMap option ([a8d1b95](https://github.com/isdk/util.js/commit/a8d1b956882a4c0a1a1d0b51534f978ac35eba4b))
+* **extract-code-block:** support nested code blocks and CSS-like selectors ([2279f0b](https://github.com/isdk/util.js/commit/2279f0b4363625d4cd214e9bab0415d49b594498))
+
 ## [0.3.7](https://github.com/isdk/util.js/compare/v0.3.6...v0.3.7) (2026-02-16)
 
 ### Features
