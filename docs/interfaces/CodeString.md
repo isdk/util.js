@@ -6,7 +6,7 @@
 
 # Interface: CodeString
 
-Defined in: [src/extract-code-block.ts:9](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/extract-code-block.ts#L9)
+Defined in: [src/extract-code-block.ts:9](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/extract-code-block.ts#L9)
 
 An extension of the built-in `String` type that carries metadata about
 the extracted code block.
@@ -29,7 +29,7 @@ in the markdown fence.
 
 > `optional` **lang**: `string`
 
-Defined in: [src/extract-code-block.ts:14](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/extract-code-block.ts#L14)
+Defined in: [src/extract-code-block.ts:14](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/extract-code-block.ts#L14)
 
 The programming language identifier of the code block (e.g., 'ts', 'js').
 It is normalized to lowercase.
@@ -54,7 +54,7 @@ Returns the length of a String object.
 
 > `optional` **meta**: `string`
 
-Defined in: [src/extract-code-block.ts:18](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/extract-code-block.ts#L18)
+Defined in: [src/extract-code-block.ts:18](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/extract-code-block.ts#L18)
 
 Any additional metadata provided after the language identifier on the fence line.
 

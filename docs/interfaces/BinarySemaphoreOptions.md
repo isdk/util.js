@@ -6,7 +6,7 @@
 
 # Interface: BinarySemaphoreOptions
 
-Defined in: [src/async-semaphore.ts:21](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L21)
+Defined in: [src/async-semaphore.ts:21](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/async-semaphore.ts#L21)
 
 ## Extended by
 
@@ -18,7 +18,7 @@ Defined in: [src/async-semaphore.ts:21](https://github.com/isdk/util.js/blob/20d
 
 > `optional` **capacity**: `number`
 
-Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L25)
+Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/async-semaphore.ts#L25)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/async-semaphore.ts:25](https://github.com/isdk/util.js/blob/20d
 
 > `optional` **initFn**: () => `any`
 
-Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L22)
+Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/async-semaphore.ts#L22)
 
 #### Returns
 
@@ -38,7 +38,7 @@ Defined in: [src/async-semaphore.ts:22](https://github.com/isdk/util.js/blob/20d
 
 > `optional` **pauseFn**: () => `void`
 
-Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L23)
+Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/async-semaphore.ts#L23)
 
 #### Returns
 
@@ -50,7 +50,7 @@ Defined in: [src/async-semaphore.ts:23](https://github.com/isdk/util.js/blob/20d
 
 > `optional` **resumeFn**: () => `void`
 
-Defined in: [src/async-semaphore.ts:24](https://github.com/isdk/util.js/blob/20d48780d60e0a0a6f6a696a3efdfa46d4cb3b1e/src/async-semaphore.ts#L24)
+Defined in: [src/async-semaphore.ts:24](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/async-semaphore.ts#L24)
 
 #### Returns
 

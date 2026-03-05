@@ -19,6 +19,7 @@
 - [BinarySemaphoreOptions](interfaces/BinarySemaphoreOptions.md)
 - [BinarySemaphoreReleaseOptions](interfaces/BinarySemaphoreReleaseOptions.md)
 - [BinarySemaphoreReleaserFunc](interfaces/BinarySemaphoreReleaserFunc.md)
+- [CodeBlockSelectorPart](interfaces/CodeBlockSelectorPart.md)
 - [CodeString](interfaces/CodeString.md)
 - [ExtractCodeBlockOptions](interfaces/ExtractCodeBlockOptions.md)
 - [IncludeFiles](interfaces/IncludeFiles.md)
@@ -29,6 +30,7 @@
 
 ## Type Aliases
 
+- [CodeBlockCombinator](type-aliases/CodeBlockCombinator.md)
 - [SemaphoreIsReadyFuncType](type-aliases/SemaphoreIsReadyFuncType.md)
 - [StringifyFunc](type-aliases/StringifyFunc.md)
 - [TraverseFolderHandler](type-aliases/TraverseFolderHandler.md)
@@ -46,6 +48,7 @@
 - [arrayHasAll](functions/arrayHasAll.md)
 - [extNameLevel](functions/extNameLevel.md)
 - [extractCodeBlock](functions/extractCodeBlock.md)
+- [extractTopLevelCodeBlocks](functions/extractTopLevelCodeBlocks.md)
 - [filenameReservedRegex](functions/filenameReservedRegex.md)
 - [findPort](functions/findPort.md)
 - [getMultiLevelExtname](functions/getMultiLevelExtname.md)
@@ -56,6 +59,7 @@
 - [normalizeIncludeFiles](functions/normalizeIncludeFiles.md)
 - [omitDeepBy](functions/omitDeepBy.md)
 - [omitEmptyDeep](functions/omitEmptyDeep.md)
+- [parseCodeBlockSelector](functions/parseCodeBlockSelector.md)
 - [parseFrontMatter](functions/parseFrontMatter.md)
 - [parseYaml](functions/parseYaml.md)
 - [RateLimit](functions/RateLimit.md)
