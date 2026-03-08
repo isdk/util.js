@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.9](https://github.com/isdk/util.js/compare/v0.3.8...v0.3.9) (2026-03-08)
+
+
+### Features
+
+* **util:** enhance findPort with host support, concurrency serialization, and privilege port jumping ([30c54a8](https://github.com/isdk/util.js/commit/30c54a8a455a9593000448de2a45f94a197d73de))
+
 ## [0.3.8](https://github.com/isdk/util.js/compare/v0.3.7...v0.3.8) (2026-03-05)
 
 
