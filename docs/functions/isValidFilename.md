@@ -8,7 +8,7 @@
 
 > **isValidFilename**(`filename`): `boolean` \| `""`
 
-Defined in: [src/filename.ts:65](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/filename.ts#L65)
+Defined in: [src/filename.ts:65](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/filename.ts#L65)
 
 Validates if a given string is a valid filename.
 

@@ -8,7 +8,7 @@
 
 > **omitEmptyDeep**\<`T`\>(`value`, `omitFunc?`): `any`
 
-Defined in: [src/omit-empty-deep.ts:33](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/omit-empty-deep.ts#L33)
+Defined in: [src/omit-empty-deep.ts:33](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/omit-empty-deep.ts#L33)
 
 Deeply removes empty values from objects or arrays, supporting both string and Symbol keys.
 

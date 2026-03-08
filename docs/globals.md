@@ -22,6 +22,7 @@
 - [CodeBlockSelectorPart](interfaces/CodeBlockSelectorPart.md)
 - [CodeString](interfaces/CodeString.md)
 - [ExtractCodeBlockOptions](interfaces/ExtractCodeBlockOptions.md)
+- [FindPortOptions](interfaces/FindPortOptions.md)
 - [IncludeFiles](interfaces/IncludeFiles.md)
 - [LoadConfigFileOptions](interfaces/LoadConfigFileOptions.md)
 - [SanitizeFilenameOptions](interfaces/SanitizeFilenameOptions.md)

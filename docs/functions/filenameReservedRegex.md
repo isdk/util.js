@@ -8,7 +8,7 @@
 
 > **filenameReservedRegex**(): `RegExp`
 
-Defined in: [src/filename.ts:44](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/filename.ts#L44)
+Defined in: [src/filename.ts:44](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/filename.ts#L44)
 
 Returns a new regular expression instance for reserved filename characters with the 'g' flag.
 use this to reset the with global option

@@ -6,20 +6,28 @@
 
 # Function: findPort()
 
-> **findPort**(`port`, `portRetryCount?`): `Promise`\<`number`\>
+> **findPort**(`port`, `options?`): `Promise`\<`number`\>
 
-Defined in: [src/find-port.ts:3](https://github.com/isdk/util.js/blob/2279f0b4363625d4cd214e9bab0415d49b594498/src/find-port.ts#L3)
+Defined in: [src/find-port.ts:17](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/find-port.ts#L17)
+
+Finds an available port.
 
 ## Parameters
 
 ### port
 
-`string` | `number`
+The starting port number or a string representation of it. Defaults to 0 (random port).
 
-### portRetryCount?
+`string` | `number` | `undefined`
 
-`number` = `10`
+### options?
+
+Either the retry count (number) or an options object.
+
+`number` | [`FindPortOptions`](../interfaces/FindPortOptions.md)
 
 ## Returns
 
 `Promise`\<`number`\>
+
+A promise that resolves to the available port number.
