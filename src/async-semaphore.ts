@@ -6,141 +6,184 @@ import { AbortError } from '@isdk/common-error'
 // async-sema Released under MIT
 // https://github.com/vercel/async-sema/blob/main/src/index.ts
 
+/**
+ * 信号量内部等待队列的默认预分配容量。
+ * 当选项中未指定容量时使用此值。
+ */
 export const DefaultAsyncSemaphoreCapacity = 32
 
+/**
+ * 就绪检查函数的类型定义。
+ * 可以是同步或异步函数。返回 `true` 表示信号量已准备好接受新请求。
+ */
 export type SemaphoreIsReadyFuncType = () => Promise<boolean> | boolean
 
+/**
+ * 内部辅助函数，判断输入是否为函数。
+ * @param x 要检查的值
+ * @returns 如果是函数则返回 true
+ */
 function isFn(x: any) {
   return typeof x === 'function'
 }
 
+/**
+ * 默认的令牌初始化函数。
+ * 默认返回字符串 '1' 作为令牌。
+ */
 function defaultInit() {
   return '1'
 }
 
+/**
+ * 二进制信号量的配置选项。
+ */
 export interface BinarySemaphoreOptions {
+  /**
+   * 用于初始化令牌的函数。
+   * 当信号量释放且没有等待任务时，如果未提供令牌，将调用此函数生成新令牌。
+   * 默认为 `() => '1'`。
+   */
   initFn?: () => any
+  /**
+   * 可选的暂停函数。
+   * 当等待队列开始积压（第一个任务进入队列）时调用，用于通知上游停止发送数据，
+   * 以避免产生过多的等待 Promise 导致内存溢出。
+   */
   pauseFn?: () => void
+  /**
+   * 可选的恢复函数。
+   * 当信号量有空闲槽位且之前已调用过 `pauseFn` 时调用。
+   * 如果定义了 `pauseFn`，则必须同时定义此函数。
+   */
   resumeFn?: () => void
+  /**
+   * 内部等待队列的初始预分配容量。
+   * 适用于高性能场景，开发者可以根据并发规模预估此值以减少动态扩容。
+   */
   capacity?: number
 }
 
+/**
+ * 获取信号量时的选项。
+ */
 export interface BinarySemaphoreAcquireOptions {
+  /**
+   * 可选的 AbortSignal，用于取消获取操作。
+   * 如果在获取到令牌前信号被中止，`acquire` 返回的 Promise 将被拒绝并抛出 `AbortError`。
+   */
   signal?: AbortSignal
+  /**
+   * 允许扩展其他自定义选项。
+   */
   [n: string]: any
 }
 
+/**
+ * 释放信号量时的选项。
+ */
 export interface BinarySemaphoreReleaseOptions {
+  /**
+   * 可选的令牌。如果使用了自定义的 `initFn`，释放时应归还对应的令牌。
+   */
   token?: any
+  /**
+   * 允许扩展其他自定义选项。
+   */
   [n: string]: any
 }
 
+/**
+ * 信号量释放函数的接口定义。
+ * 它本身是一个函数，同时也包含释放选项作为属性。
+ */
 export interface BinarySemaphoreReleaserFunc extends BinarySemaphoreReleaseOptions {
+  /**
+   * 调用此函数以释放信号量。
+   */
   (): void
 }
 
+/**
+ * 通用信号量的配置选项，继承自二进制信号量选项。
+ */
 export interface SemaphoreOptions extends BinarySemaphoreOptions {
+  /**
+   * 最大并发数。
+   * 指定允许同时获取信号量的最大调用方数量。
+   */
   maxConcurrency?: number
+  /**
+   * 可选的就绪检查函数。
+   * 在尝试获取令牌前调用，如果返回 false（或解析为 false 的 Promise），则无法立即获取。
+   */
   isReadyFn?: SemaphoreIsReadyFuncType
 }
 
-// export interface SemaphoreAcquireOptions {
-// 	signal?: AbortSignal;
-// 	priority?: number;
-// }
-
+/**
+ * 内部等待任务项的结构定义。
+ */
 export interface SemaphoreTaskItem extends BinarySemaphoreAcquireOptions {
+  /**
+   * 当获取成功时调用的解析函数，接收释放函数作为参数。
+   */
   resolve: (value: any) => void
+  /**
+   * 当获取失败（如被中止）时调用的拒绝函数。
+   */
   reject: (reason?: any) => void
+  /**
+   * 与此任务关联的令牌。
+   */
   token?: any
 }
 
 /**
- * A binary semaphore implementation for managing concurrency in asynchronous operations.
- * Unlike a general semaphore, a binary semaphore allows only one caller to acquire the semaphore at a time.
- * It provides methods to acquire, release, and manage waiting tasks efficiently.
+ * 二进制信号量（Binary Semaphore）实现。
+ * 二进制信号量在任何时刻只允许一个调用方获取成功（类似于互斥锁）。
+ * 它提供了获取（acquire）、释放（release）以及管理等待队列的机制，并支持背压控制（通过 pauseFn/resumeFn）。
  *
- * Example usage:
+ * 示例用法：
  *
  * ```typescript
- * const semaphore = new Semaphore(5); // Allows 5 concurrent operations.
+ * const semaphore = new BinarySemaphore();
  *
- * const semaphore = new Semaphore(
- *   4, // Allow 4 concurrent async calls
- *   {
- *     capacity: 100 // Prealloc space for 100 tokens
- *   }
- * );
- *
- * async function fetchData(x) {
- *   await semaphore.acquire()
+ * async function performTask(data) {
+ *   const release = await semaphore.acquire();
  *   try {
- *     console.log(semaphore.pendingCount + ' calls to fetch are waiting')
- *     // ... do some async stuff with x
+ *     console.log('正在处理:', data);
+ *     // 执行异步操作...
  *   } finally {
- *     semaphore.release();
+ *     release(); // 或者使用 semaphore.release();
  *   }
  * }
- *
- * const data = await Promise.all(array.map(fetchData));
  * ```
  */
 export class BinarySemaphore {
+  /** 存储等待获取令牌的任务队列。 */
   readonly waiting: Deque<SemaphoreTaskItem | undefined>
+  /** 当前空闲的令牌。对于二进制信号量，只能持有一个令牌。 */
   protected free: any
+  /** 内部事件触发器，用于协调释放和分发逻辑。 */
   protected emitter: EventEmitter
+  /** 标记是否使用默认的令牌初始化函数。 */
   protected useDefaultTokens: boolean
+  /** 获取积压时的暂停回调。 */
   protected pauseFn?: () => void
+  /** 恢复处理的回调。 */
   protected resumeFn?: () => void
+  /** 令牌初始化函数。 */
   protected initTokenFn: (token?: any) => void
+  /** 记录当前是否处于暂停状态。 */
   protected paused: boolean
+  /** 记录当前活跃的（已获取但未释放）操作总数。 */
   protected _activeCount: number
 
   /**
-   * Creates a binary semaphore object for managing concurrency in asynchronous operations.
+   * 创建一个二进制信号量实例。
    *
-   * @param options.initFn Function that is used to initialize the tokens used to manage the semaphore. The default is () => '1'.
-   * @param options.pauseFn An optional fuction that is called to opportunistically request pausing the the incoming stream of data,
-   *    instead of piling up waiting promises and possibly running out of memory. See examples/pausing.js.
-   * @param options.resumeFn An optional function that is called when there is room again to accept new waiters on the semaphore.
-   *    This function must be declared if a pauseFn is declared.
-   * @param options.capacity Sets the size of the preallocated waiting list inside the semaphore.
-   *    This is typically used by high performance where the developer can make a rough estimate of the number of concurrent users of a semaphore.
-   *
-   * ```ts
-   * const readline = require('readline');
-   *
-   * const rl = readline.createInterface({
-   * 	input: process.stdin,
-   * 	output: process.stdout,
-   * 	terminal: false
-   * });
-   *
-   * function pause() {
-   * 	console.log('Pausing the stream');
-   * 	rl.pause();
-   * }
-   *
-   * function resume() {
-   * 	console.log('Resuming the stream');
-   * 	rl.resume();
-   * }
-   *
-   * const s = new BinarySemaphore({ pauseFn: pause, resumeFn: resume });
-   *
-   * async function parse(line) {
-   * 	await s.acquire();
-   *
-   * 	console.log(line);
-   *
-   * 	s.release();
-   * }
-   *
-   * rl.on('line', line => {
-   * 	parse(line).catch(console.error);
-   * });
-   * ```
-   *
+   * @param options 配置选项。
+   * @throws {Error} 如果只提供了 pauseFn 而未提供 resumeFn，或者反之，则抛出错误。
    */
   constructor(options: BinarySemaphoreOptions = {}) {
     const {
@@ -166,10 +209,20 @@ export class BinarySemaphore {
     this.init(options)
   }
 
+  /**
+   * 初始化空闲令牌。在构造函数中被调用。
+   * @param options 配置选项。
+   */
   initFree(options?: BinarySemaphoreOptions) {
     this.free = this.initTokenFn()
   }
 
+  /**
+   * 当信号量被释放时执行的内部处理逻辑。
+   * 检查等待队列，如果有任务则分发令牌；否则将令牌归还至空闲池，并视情况调用 `resumeFn`。
+   *
+   * @param options 释放选项，可能包含令牌。
+   */
   onReleased(options?: BinarySemaphoreReleaseOptions) {
     const token = options?.token
     const task = this.waiting.shift(true)
@@ -186,12 +239,24 @@ export class BinarySemaphore {
     }
   }
 
+  /**
+   * 初始化事件监听。在构造函数中被调用。
+   * @param options 配置选项。
+   */
   init(options: BinarySemaphoreOptions) {
     this.emitter.on('release', (item?: Partial<SemaphoreTaskItem>) => {
       this.onReleased(item)
     })
   }
 
+  /**
+   * 创建一个新的释放函数。
+   * 确保释放逻辑只被执行一次，并携带相关的释放选项。
+   *
+   * @param options 释放选项。
+   * @returns 返回一个可调用的释放函数。
+   * @internal
+   */
   _newReleaser(options?: BinarySemaphoreReleaseOptions) {
     let called = false
     const releaser = () => {
@@ -207,6 +272,13 @@ export class BinarySemaphore {
     return releaser as BinarySemaphoreReleaserFunc
   }
 
+  /**
+   * 将令牌分发给等待的任务。
+   *
+   * @param task 等待中的任务项。
+   * @param options 释放时传递的选项。
+   * @internal
+   */
   _dispatchTask(
     task: SemaphoreTaskItem,
     options?: BinarySemaphoreReleaseOptions
@@ -215,6 +287,12 @@ export class BinarySemaphore {
     resolve(this._newReleaser(options))
   }
 
+  /**
+   * 锁定信号量。尝试从空闲池中提取令牌。
+   *
+   * @param options 获取选项。
+   * @returns 如果有可用令牌则返回该令牌，否则返回 undefined。
+   */
   lock(options?: BinarySemaphoreAcquireOptions) {
     const free = this.free
     if (free) {
@@ -223,23 +301,40 @@ export class BinarySemaphore {
     }
   }
 
+  /**
+   * 解锁信号量。将令牌归还至空闲池。
+   *
+   * @param token 要归还的令牌。如果未提供，则使用初始化函数生成。
+   */
   unlock(token?: any) {
     this.free = this.useDefaultTokens ? '1' : (token ?? this.initTokenFn())
   }
 
   /**
-   * Attempt to acquire a token from the semaphore, if one is available immediately. Otherwise, return undefined.
+   * 尝试立即获取令牌。
+   * 如果信号量当前不可用，则立即返回 `undefined` 而不进入等待队列。
    *
-   * @return Returns a token if the semaphore is not full; otherwise, returns `undefined`.
+   * @param options 获取选项。
+   * @returns 如果获取成功则返回令牌，否则返回 `undefined`。
    */
   tryAcquire(options?: BinarySemaphoreAcquireOptions): any | undefined {
     return this.lock(options)
   }
 
   /**
-   * Acquire a token from the semaphore, thus decrement the number of available execution slots. If initFn is not used then the return value of the function can be discarded.
-   * @param options.signal An optional AbortSignal to abort the acquisition process. If aborted, the promise will reject with an AbortError.
-   * @return A promise that resolves to a release function when a token is acquired. If the semaphore is full, the caller will be added to a waiting queue.
+   * 获取信号量。
+   * 如果信号量当前可用，将立即解析。否则，调用方将被加入等待队列，
+   * 直到有令牌被释放。
+   *
+   * 逻辑流程：
+   * 1. 增加活跃计数。
+   * 2. 尝试通过 `tryAcquire` 立即获取令牌。
+   * 3. 如果 `tryAcquire` 返回的是异步结果（通过 `isAsync` 判断），则等待其解析。
+   * 4. 如果最终未获得令牌，则将任务推入 `waiting` 队列，并处理可选的 `AbortSignal`。
+   * 5. 如果此时是队列中的第一个任务且定义了 `pauseFn`，则触发暂停回调。
+   *
+   * @param options 获取选项，可包含 `signal` 用于取消。
+   * @returns 解析为释放函数（`BinarySemaphoreReleaserFunc`）的 Promise。
    */
   async acquire(options?: BinarySemaphoreAcquireOptions) {
     this._activeCount++
@@ -281,14 +376,17 @@ export class BinarySemaphore {
     // token !== undefined means that the semaphore is not full, so we can resolve the promise immediately.
     //const result = token !== undefined ? Promise.resolve(token) : new Promise(addWait);
     const result = isAsyncToken
-      ? token.then((token) => newPromise(token))
+      ? token.then((token: any) => newPromise(token))
       : newPromise(token)
     return result as Promise<BinarySemaphoreReleaserFunc>
   }
 
   /**
-   * Releases the semaphore, incrementing the number of free execution slots. If there are tasks in the waiting queue, the next task will be dispatched.
-   * @param options.token Optional token returned by `acquire()` when using a custom `initFn`. If provided, it will be used to unlock the semaphore.
+   * 释放信号量，增加可用执行槽位。
+   * 如果等待队列中有任务，将触发下一个任务的执行。
+   * 此方法会减少 `activeCount` 并发出 'release' 事件。
+   *
+   * @param options 释放选项。
    */
   release(options?: BinarySemaphoreReleaseOptions): void {
     this._activeCount--
@@ -296,13 +394,23 @@ export class BinarySemaphore {
   }
 
   /**
-   * Drains the semaphore and returns all the initialized tokens in an array. Draining is an ideal way to ensure there are no pending async tasks, for example before a process will terminate.
+   * 等待所有当前活跃的操作完成。
+   * 它通过尝试获取一次信号量来确保之前的操作已经释放。
+   * 在进程终止前使用此方法以确保没有挂起的异步任务。
+   *
+   * @returns 解析为包含已获取令牌的数组的 Promise。
    */
   drain(): Promise<any[]> {
     const a = [this.acquire()]
     return Promise.all(a)
   }
 
+  /**
+   * 中止所有正在等待的任务。
+   * 所有在等待队列中的 Promise 将被拒绝并抛出 `AbortError`。
+   *
+   * @param reason 中止的原因。
+   */
   abort(reason?: any): void {
     let p: SemaphoreTaskItem | undefined
     while ((p = this.waiting.shift(true))) {
@@ -312,22 +420,21 @@ export class BinarySemaphore {
   }
 
   /**
-   * Get the total count of all active operations.
+   * 获取所有活跃操作的总数。
+   * 包含：
+   * - 正在队列中等待获取信号量的操作（`pendingCount`）。
+   * - 已经成功获取信号量但尚未释放的操作。
    *
-   * This method returns the number of operations that are either:
-   * - Waiting in the queue to acquire the semaphore (`pendingCount`).
-   * - Already acquired the semaphore but have not yet released it.
-   *
-   * @returns {number} The total count of active operations, including both waiting and ongoing tasks.
+   * @returns 活跃操作的总数。
    */
   get activeCount(): number {
     return this._activeCount
   }
 
   /**
-   * Get the number of callers waiting on the semaphore, i.e. the number of pending promises.
+   * 获取当前在等待队列中的调用方数量。
    *
-   * @returns The number of waiters in the waiting list.
+   * @returns 等待中的 Promise 数量。
    */
   get pendingCount(): number {
     return this.waiting.size
@@ -335,62 +442,40 @@ export class BinarySemaphore {
 }
 
 /**
- * A Semaphore implementation for managing concurrency in asynchronous operations.
- * Semaphores allow a fixed number of resources to be accessed concurrently.
- * This class extends BinarySemaphore and adds support for a maximum concurrency limit and an optional readiness check.
+ * 计数信号量（Semaphore）实现。
+ * 扩展自二进制信号量，允许指定最大并发数（`maxConcurrency`）。
+ * 支持可选的就绪检查（`isReadyFn`）。
  *
- * Example usage:
+ * 示例用法：
  *
  * ```typescript
- * const semaphore = new Semaphore(5); // Allows 5 concurrent operations.
+ * const semaphore = new Semaphore(5); // 允许 5 个并发操作
  *
- * const semaphore = new Semaphore(
- *   4, // Allow 4 concurrent async calls
- *   {
- *     capacity: 100, // Prealloc space for 100 tokens
- *     isReadyFn: async () => {
- *       // Check if the system is ready to handle more requests
- *       return true;
- *     },
- *     pauseFn: () => {
- *       console.log('Pausing the stream');
- *     },
- *     resumeFn: () => {
- *       console.log('Resuming the stream');
- *     }
- *   }
- * );
- *
- * async function fetchData(x) {
- *   await semaphore.acquire()
+ * async function fetchData(id) {
+ *   const release = await semaphore.acquire();
  *   try {
- *     console.log(semaphore.pendingCount() + ' calls to fetch are waiting')
- *     // ... do some async stuff with x
+ *     console.log(`正在获取数据 ${id}, 等待中: ${semaphore.pendingCount}`);
+ *     // ... 异步操作
  *   } finally {
- *     semaphore.release();
+ *     release();
  *   }
  * }
- *
- * const data = await Promise.all(array.map(fetchData));
  * ```
  */
 export class Semaphore extends BinarySemaphore {
+  /** 最大并发限制。 */
   readonly maxConcurrency: number
-  protected free: Deque<any>
+  /** 存储空闲令牌的队列。 */
+  protected override free: Deque<any>
+  /** 就绪检查函数。 */
   private isReady?: SemaphoreIsReadyFuncType
 
   /**
-   * Creates a semaphore object. The first argument is the maximum concurrently number and the second argument is optional.
+   * 创建一个计数信号量实例。
    *
-   * @param maxConcurrency The maximum number of callers allowed to acquire the semaphore concurrently.
-   * @param options.initFn Function that is used to initialize the tokens used to manage the semaphore. The default is () => '1'.
-   * @param options.pauseFn An optional function that is called to opportunistically request pausing the incoming stream of data,
-   *    instead of piling up waiting promises and possibly running out of memory. See examples/pausing.js.
-   * @param options.resumeFn An optional function that is called when there is room again to accept new waiters on the semaphore.
-   *    This function must be declared if a pauseFn is declared.
-   * @param options.capacity Sets the size of the preallocated waiting list inside the semaphore.
-   *    This is typically used by high performance where the developer can make a rough estimate of the number of concurrent users of a semaphore.
-   * @param options.isReadyFn An optional function that returns a boolean or a promise that resolves to a boolean indicating whether the semaphore is ready to accept new requests.
+   * @param maxConcurrency 最大并发数，或者包含并发设置的配置对象。
+   * @param options 配置选项。
+   * @throws {Error} 如果未指定有效并发数则抛出错误。
    */
   constructor(
     maxConcurrency: number | SemaphoreOptions,
@@ -410,7 +495,12 @@ export class Semaphore extends BinarySemaphore {
     this.maxConcurrency = options.maxConcurrency
     if (options.isReadyFn) this.isReady = options.isReadyFn
   }
-  initFree(options: SemaphoreOptions) {
+
+  /**
+   * 初始化令牌池，填充至最大并发数。
+   * @param options 配置选项。
+   */
+  override initFree(options: SemaphoreOptions) {
     const maxConcurrency = (options.maxConcurrency = Math.max(
       1,
       options.maxConcurrency!
@@ -421,7 +511,14 @@ export class Semaphore extends BinarySemaphore {
     }
   }
 
-  tryAcquire(
+  /**
+   * 尝试获取令牌，包含就绪状态检查。
+   * 如果定义了 `isReadyFn`，将先调用它。
+   *
+   * @param options 获取选项。
+   * @returns 可能返回令牌、Promise（当就绪检查为异步时）或 undefined。
+   */
+  override tryAcquire(
     options?: BinarySemaphoreAcquireOptions
   ): Promise<any | undefined> | any | undefined {
     let isReady = this.isReady as unknown as Promise<boolean>
@@ -440,15 +537,30 @@ export class Semaphore extends BinarySemaphore {
     }
   }
 
-  unlock(token?: any) {
+  /**
+   * 将令牌归还至空闲令牌池。
+   * @param token 要归还的令牌。
+   */
+  override unlock(token?: any) {
     this.free.push(this.useDefaultTokens ? '1' : (token ?? this.initTokenFn()))
   }
 
-  lock(options?: BinarySemaphoreAcquireOptions) {
+  /**
+   * 从空闲令牌池中取出一个令牌。
+   * @param options 获取选项。
+   * @returns 如果池中不为空则返回一个令牌，否则返回 undefined。
+   */
+  override lock(options?: BinarySemaphoreAcquireOptions) {
     return this.free.pop()
   }
 
-  drain(): Promise<any[]> {
+  /**
+   * 消耗掉所有并发槽位，确保当前没有其他操作正在运行。
+   * 常用于在关键操作前清空并发环境。
+   *
+   * @returns 解析为包含所有令牌数组的 Promise。
+   */
+  override drain(): Promise<any[]> {
     const a = new Array(this.maxConcurrency)
     for (let i = 0; i < this.maxConcurrency; i++) {
       a[i] = this.acquire()
@@ -458,32 +570,30 @@ export class Semaphore extends BinarySemaphore {
 }
 
 /**
- * Creates a rate limiter function that blocks with a promise whenever the rate limit is hit and resolves the promise once the call rate is within the limit set by rps. The second argument is optional.
+ * 创建一个速率限制器函数（Rate Limiter）。
+ * 当调用频率超过设定的 `rps`（每秒请求数）时，该函数会通过 Promise 阻塞调用方，
+ * 并在调用率回到限制范围内时解析。
  *
- * @param rps
- * @param options.timeUnit The `timeUnit` is an optional argument setting the width of the rate limiting window in milliseconds.
- *    The default `timeUnit` is 1000 ms, therefore making the rps argument act as requests per second limit.
- * @param options.uniformDistribution  The `uniformDistribution` argument enforces a discrete uniform distribution over time,
- *    instead of the default that allows hitting the function rps time and then pausing for timeWindow milliseconds. Setting
- *    the `uniformDistribution` option is mainly useful in a situation where the flow of rate limit function calls is continuous
- *    and and occuring faster than timeUnit (e.g. reading a file) and not enabling it would cause the maximum number of calls to
- *    resolve immediately (thus exhaust the limit immediately) and therefore the next bunch calls would need to wait for timeWindow
- *    milliseconds. However if the flow is sparse then this option may make the code run slower with no advantages.
+ * @param rps 限制的速率。默认单位时间内允许的请求数。
+ * @param options 配置项。
+ * @param options.timeUnit 时间窗口大小（毫秒）。默认为 1000ms。
+ * @param options.uniformDistribution 是否强制离散均匀分布。
+ *    - 若为 `false`（默认）：允许在时间窗口开始时立即耗尽所有配额，然后暂停直到窗口结束。
+ *    - 若为 `true`：将配额均匀分配到时间窗口内（例如 5 rps 会每 200ms 允许一次请求）。
+ *      在流量持续且快速的场景下（如读取文件）建议开启，以避免瞬时突发流量。
+ * @returns 返回一个异步限流函数，调用该函数即可实现限流。
  *
- * Examples:
- *
+ * 示例：
  * ```ts
- * async function f() {
- *   const lim = RateLimit(5); // rps
+ * const lim = RateLimit(5); // 限制为 5 次/秒
  *
- *   for (let i = 0; i < n; i++) {
- *     await lim();
- *     // ... do something async
+ * async function processItems(items) {
+ *   for (const item of items) {
+ *     await lim(); // 可能会在这里阻塞
+ *     await handle(item);
  *   }
  * }
  * ```
- *
- *
  */
 export function RateLimit(
   rps: number,
