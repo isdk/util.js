@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.10](https://github.com/isdk/util.js/compare/v0.3.9...v0.3.10) (2026-06-26)
+
+
+### Features
+
+* **extractCodeBlock:** add multi langs check supports ([d971c59](https://github.com/isdk/util.js/commit/d971c59e93608bec451d11c14e0201de6a4ea103))
+
 ## [0.3.9](https://github.com/isdk/util.js/compare/v0.3.8...v0.3.9) (2026-03-08)
 
 
