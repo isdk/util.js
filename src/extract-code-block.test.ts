@@ -38,6 +38,14 @@ const x: number = 1;
     expect(result.lang).toBe('js')
   })
 
+  it('should extract last matching language block (case-insensitive)', () => {
+    const input = '```JS\nalert("hi");\n```\n```Yaml\na: hello\n```'
+    const result: CodeString = extractCodeBlock(input, ['js', 'yml']) as CodeString
+    expect(result instanceof String).toBe(true)
+    expect(result.toString()).toBe('a: hello\n')
+    expect(result.lang).toBe('yaml')
+  })
+
   it('should return original primitive string when lang is specified but no match found', () => {
     const input = '```py\nprint("hello")\n```'
     const result = extractCodeBlock(input, 'js')
@@ -546,6 +554,14 @@ Outer
     it('should extractTopLevelCodeBlocks directly with multiple matches', () => {
       const input = '\`\`\`js\n1\n\`\`\`\n\`\`\`js\n2\n\`\`\`'
       const results = extractTopLevelCodeBlocks(input, { lang: 'js' })
+      expect(results).toHaveLength(2)
+      expect(results[0].toString().trim()).toBe('1')
+      expect(results[1].toString().trim()).toBe('2')
+    })
+
+    it('should extractTopLevelCodeBlocks directly with multiple langs matches', () => {
+      const input = '\`\`\`js\n1\n\`\`\`\n\`\`\`yml\n2\n\`\`\`'
+      const results = extractTopLevelCodeBlocks(input, { lang: ['js', 'yaml'] })
       expect(results).toHaveLength(2)
       expect(results[0].toString().trim()).toBe('1')
       expect(results[1].toString().trim()).toBe('2')

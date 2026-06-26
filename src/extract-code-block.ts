@@ -44,7 +44,7 @@ export interface CodeBlockSelectorPart {
   /**
    * The target language identifier or alias to match.
    */
-  lang: string
+  lang: string|string[]
 }
 
 /**
@@ -58,7 +58,7 @@ export interface ExtractCodeBlockOptions {
    * @example 'ts' - Find the last TypeScript block.
    * @example 'md > ts' - Find ts blocks inside md blocks.
    */
-  lang?: string
+  lang?: string | string[]
   /**
    * Optional. The 0-based index of the code block to extract from the final result set.
    * Supports negative indexing: -1 means the last one, -2 means the second to last, etc.
@@ -117,7 +117,7 @@ export function extractTopLevelCodeBlocks(
   options: ExtractCodeBlockOptions = {}
 ): CodeString[] {
   const { lang, langMap } = options
-  const targetLang = normalizeLanguage(lang, langMap)
+  const targetLangs = Array.isArray(lang) ? lang.map(item => normalizeLanguage(item, langMap)) : lang ? [normalizeLanguage(lang, langMap)] : lang
 
   const regex =
     /^[ \t]*(?<fence>`{3,}|~{3,})(?<lang>\S*)[ \t]*(?<meta>\S*?)\n(?<code>[\s\S]+?\n)?[ \t]*\k<fence>$/gm
@@ -129,7 +129,7 @@ export function extractTopLevelCodeBlocks(
 
   while ((matched = regex.exec(text)) !== null) {
     const _lang = matched.groups?.lang?.toLowerCase()
-    if (!targetLang || targetLang === normalizeLanguage(_lang, langMap)) {
+    if (!targetLangs || targetLangs.includes(normalizeLanguage(_lang, langMap) ?? '')) {
       const code: string = matched.groups!.code || ''
       const codeString = new String(code) as CodeString
       if (matched.groups!.lang) {
@@ -157,13 +157,14 @@ export function extractTopLevelCodeBlocks(
  * @param lang - The selector string.
  * @returns An array of parsed selector parts.
  */
-export function parseCodeBlockSelector(lang?: string): CodeBlockSelectorPart[] {
+export function parseCodeBlockSelector(lang?: string|string[]): CodeBlockSelectorPart[] {
   if (!lang) return []
   const parts: CodeBlockSelectorPart[] = []
   const regex = /([>+~])?\s*([^\s>+~]+)/g
   let match: RegExpExecArray | null
-
-  while ((match = regex.exec(lang)) !== null) {
+  if (Array.isArray(lang)) {
+    parts.push({ combinator: ' ', lang })
+  } else while ((match = regex.exec(lang)) !== null) {
     const combinator = (match[1] as CodeBlockCombinator) || ' '
     const targetLang = match[2]
     parts.push({ combinator, lang: targetLang })
@@ -197,10 +198,10 @@ export function parseCodeBlockSelector(lang?: string): CodeBlockSelectorPart[] {
  */
 export function extractCodeBlock(
   text: string,
-  langOrOptions?: string | ExtractCodeBlockOptions
+  langOrOptions?: string | string[] | ExtractCodeBlockOptions
 ): CodeString | string | (CodeString | string)[] {
   const options: ExtractCodeBlockOptions =
-    typeof langOrOptions === 'string'
+    Array.isArray(langOrOptions) || typeof langOrOptions === 'string'
       ? { lang: langOrOptions }
       : (langOrOptions ?? {})
 
