@@ -8,7 +8,7 @@
 
 > **extractCodeBlock**(`text`, `langOrOptions?`): `string` \| [`CodeString`](../interfaces/CodeString.md) \| (`string` \| [`CodeString`](../interfaces/CodeString.md))[]
 
-Defined in: [src/extract-code-block.ts:198](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/extract-code-block.ts#L198)
+Defined in: [src/extract-code-block.ts:199](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/extract-code-block.ts#L199)
 
 Extracts fenced code block(s) from the input `text`, with support for nested path selectors.
 
@@ -26,9 +26,9 @@ The input string containing Markdown.
 
 ### langOrOptions?
 
-Either a language/selector string or a full [ExtractCodeBlockOptions](../interfaces/ExtractCodeBlockOptions.md) object.
+`string` \| `string`[] \| [`ExtractCodeBlockOptions`](../interfaces/ExtractCodeBlockOptions.md)
 
-`string` | [`ExtractCodeBlockOptions`](../interfaces/ExtractCodeBlockOptions.md)
+Either a language/selector string or a full [ExtractCodeBlockOptions](../interfaces/ExtractCodeBlockOptions.md) object.
 
 ## Returns
 

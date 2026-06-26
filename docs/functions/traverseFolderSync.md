@@ -8,7 +8,7 @@
 
 > **traverseFolderSync**(`directoryPath`, `fileHandler`): `void`
 
-Defined in: [src/traverse-folder.ts:89](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/traverse-folder.ts#L89)
+Defined in: [src/traverse-folder.ts:89](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/traverse-folder.ts#L89)
 
 Traverses a folder synchronously and applies a handler to each file or directory.
 

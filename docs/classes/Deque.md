@@ -6,7 +6,7 @@
 
 # Class: Deque\<T\>
 
-Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L31)
+Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L31)
 
 ## Extends
 
@@ -20,7 +20,7 @@ Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/30c54a8a455a9
 
 ## Indexable
 
-\[`n`: `number`\]: `T`
+> \[`n`: `number`\]: `T`
 
 ## Constructors
 
@@ -28,13 +28,13 @@ Defined in: [src/deque.ts:31](https://github.com/isdk/util.js/blob/30c54a8a455a9
 
 > **new Deque**\<`T`\>(`capacity?`, `disableAutoResize?`): `Deque`\<`T`\>
 
-Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L37)
+Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L37)
 
 #### Parameters
 
 ##### capacity?
 
-`number` | `T`[]
+`number` \| `T`[]
 
 ##### disableAutoResize?
 
@@ -54,7 +54,7 @@ Defined in: [src/deque.ts:37](https://github.com/isdk/util.js/blob/30c54a8a455a9
 
 > `readonly` **\[unscopables\]**: `object`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:97
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:97
 
 Is an object whose properties have the value 'true'
 when they will be absent when used in a 'with' statement.
@@ -65,148 +65,148 @@ when they will be absent when used in a 'with' statement.
 
 #### \[iterator\]?
 
-> `optional` **\[iterator\]**: `boolean`
+> `optional` **\[iterator\]?**: `boolean`
 
 #### \[unscopables\]?
 
-> `readonly` `optional` **\[unscopables\]**: `boolean`
+> `readonly` `optional` **\[unscopables\]?**: `boolean`
 
 Is an object whose properties have the value 'true'
 when they will be absent when used in a 'with' statement.
 
 #### at?
 
-> `optional` **at**: `boolean`
+> `optional` **at?**: `boolean`
 
 #### concat?
 
-> `optional` **concat**: `boolean`
+> `optional` **concat?**: `boolean`
 
 #### copyWithin?
 
-> `optional` **copyWithin**: `boolean`
+> `optional` **copyWithin?**: `boolean`
 
 #### entries?
 
-> `optional` **entries**: `boolean`
+> `optional` **entries?**: `boolean`
 
 #### every?
 
-> `optional` **every**: `boolean`
+> `optional` **every?**: `boolean`
 
 #### fill?
 
-> `optional` **fill**: `boolean`
+> `optional` **fill?**: `boolean`
 
 #### filter?
 
-> `optional` **filter**: `boolean`
+> `optional` **filter?**: `boolean`
 
 #### find?
 
-> `optional` **find**: `boolean`
+> `optional` **find?**: `boolean`
 
 #### findIndex?
 
-> `optional` **findIndex**: `boolean`
+> `optional` **findIndex?**: `boolean`
 
 #### flat?
 
-> `optional` **flat**: `boolean`
+> `optional` **flat?**: `boolean`
 
 #### flatMap?
 
-> `optional` **flatMap**: `boolean`
+> `optional` **flatMap?**: `boolean`
 
 #### forEach?
 
-> `optional` **forEach**: `boolean`
+> `optional` **forEach?**: `boolean`
 
 #### includes?
 
-> `optional` **includes**: `boolean`
+> `optional` **includes?**: `boolean`
 
 #### indexOf?
 
-> `optional` **indexOf**: `boolean`
+> `optional` **indexOf?**: `boolean`
 
 #### join?
 
-> `optional` **join**: `boolean`
+> `optional` **join?**: `boolean`
 
 #### keys?
 
-> `optional` **keys**: `boolean`
+> `optional` **keys?**: `boolean`
 
 #### lastIndexOf?
 
-> `optional` **lastIndexOf**: `boolean`
+> `optional` **lastIndexOf?**: `boolean`
 
 #### length?
 
-> `optional` **length**: `boolean`
+> `optional` **length?**: `boolean`
 
 Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 
 #### map?
 
-> `optional` **map**: `boolean`
+> `optional` **map?**: `boolean`
 
 #### pop?
 
-> `optional` **pop**: `boolean`
+> `optional` **pop?**: `boolean`
 
 #### push?
 
-> `optional` **push**: `boolean`
+> `optional` **push?**: `boolean`
 
 #### reduce?
 
-> `optional` **reduce**: `boolean`
+> `optional` **reduce?**: `boolean`
 
 #### reduceRight?
 
-> `optional` **reduceRight**: `boolean`
+> `optional` **reduceRight?**: `boolean`
 
 #### reverse?
 
-> `optional` **reverse**: `boolean`
+> `optional` **reverse?**: `boolean`
 
 #### shift?
 
-> `optional` **shift**: `boolean`
+> `optional` **shift?**: `boolean`
 
 #### slice?
 
-> `optional` **slice**: `boolean`
+> `optional` **slice?**: `boolean`
 
 #### some?
 
-> `optional` **some**: `boolean`
+> `optional` **some?**: `boolean`
 
 #### sort?
 
-> `optional` **sort**: `boolean`
+> `optional` **sort?**: `boolean`
 
 #### splice?
 
-> `optional` **splice**: `boolean`
+> `optional` **splice?**: `boolean`
 
 #### toLocaleString?
 
-> `optional` **toLocaleString**: `boolean`
+> `optional` **toLocaleString?**: `boolean`
 
 #### toString?
 
-> `optional` **toString**: `boolean`
+> `optional` **toString?**: `boolean`
 
 #### unshift?
 
-> `optional` **unshift**: `boolean`
+> `optional` **unshift?**: `boolean`
 
 #### values?
 
-> `optional` **values**: `boolean`
+> `optional` **values?**: `boolean`
 
 #### Inherited from
 
@@ -218,7 +218,7 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > **length**: `number`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1326
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1329
 
 Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 
@@ -232,7 +232,7 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > `readonly` `static` **\[species\]**: `ArrayConstructor`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:316
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:316
 
 #### Inherited from
 
@@ -246,7 +246,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **get** **size**(): `number`
 
-Defined in: [src/deque.ts:171](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L171)
+Defined in: [src/deque.ts:171](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L171)
 
 Gets the number of elements in the deque.
 
@@ -273,7 +273,7 @@ The current count of elements in the deque.
 
 > **\[iterator\]**(): `ArrayIterator`\<`T`\>
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:78
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:78
 
 Iterator
 
@@ -291,7 +291,7 @@ Iterator
 
 > **at**(`index`): `T` \| `undefined`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2022.array.d.ts:24
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2022.array.d.ts:24
 
 Returns the item located at the specified index.
 
@@ -317,7 +317,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **clear**(): `void`
 
-Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L206)
+Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L206)
 
 #### Returns
 
@@ -331,7 +331,7 @@ Defined in: [src/deque.ts:206](https://github.com/isdk/util.js/blob/30c54a8a455a
 
 > **concat**(...`items`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1350
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1353
 
 Combines two or more arrays.
 This method returns a new array without modifying any existing arrays.
@@ -356,7 +356,7 @@ Additional arrays and/or items to add to the end of the array.
 
 > **concat**(...`items`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1356
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1359
 
 Combines two or more arrays.
 This method returns a new array without modifying any existing arrays.
@@ -383,7 +383,7 @@ Additional arrays and/or items to add to the end of the array.
 
 > **copyWithin**(`target`, `start`, `end?`): `this`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:62
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:62
 
 Returns the this object after copying a section of the array identified by start and end
 to the same array starting at position target
@@ -424,7 +424,7 @@ If not specified, length of the this object is used as its default value.
 
 > **entries**(): `ArrayIterator`\<\[`number`, `T`\]\>
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:83
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:83
 
 Returns an iterable of key, value pairs for every entry in the array
 
@@ -444,7 +444,7 @@ Returns an iterable of key, value pairs for every entry in the array
 
 > **every**\<`S`\>(`predicate`, `thisArg?`): `this is S[]`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1433
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1440
 
 Determines whether all the members of an array satisfy the specified test.
 
@@ -483,7 +483,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **every**(`predicate`, `thisArg?`): `boolean`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1442
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1449
 
 Determines whether all the members of an array satisfy the specified test.
 
@@ -518,7 +518,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **fill**(`value`, `start?`, `end?`): `this`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:51
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:51
 
 Changes all array elements from `start` to `end` index to a static `value` and returns the modified array
 
@@ -560,7 +560,7 @@ length+end.
 
 > **filter**\<`S`\>(`predicate`, `thisArg?`): `S`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1469
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1476
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
@@ -596,7 +596,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 > **filter**(`predicate`, `thisArg?`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1475
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1482
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
@@ -630,7 +630,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 > **find**\<`S`\>(`predicate`, `thisArg?`): `S` \| `undefined`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:29
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:29
 
 Returns the value of the first element in the array where predicate is true, and undefined
 otherwise.
@@ -670,7 +670,7 @@ predicate. If it is not provided, undefined is used instead.
 
 > **find**(`predicate`, `thisArg?`): `T` \| `undefined`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:30
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:30
 
 ##### Parameters
 
@@ -696,7 +696,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **findIndex**(`predicate`, `thisArg?`): `number`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:41
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:41
 
 Returns the index of the first element in the array where predicate is true, and -1
 otherwise.
@@ -732,7 +732,7 @@ predicate. If it is not provided, undefined is used instead.
 
 > **flat**\<`A`, `D`\>(`this`, `depth?`): `FlatArray`\<`A`, `D`\>[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2019.array.d.ts:75
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2019.array.d.ts:75
 
 Returns a new array with all sub-array elements concatenated into it recursively up to the
 specified depth.
@@ -773,7 +773,7 @@ The maximum recursion depth
 
 > **flatMap**\<`U`, `This`\>(`callback`, `thisArg?`): `U`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2019.array.d.ts:64
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2019.array.d.ts:64
 
 Calls a defined callback function on each element of an array. Then, flattens the result into
 a new array.
@@ -819,7 +819,7 @@ thisArg is omitted, undefined is used as the this value.
 
 > **forEach**(`callbackfn`, `thisArg?`): `void`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1457
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1464
 
 Performs the specified action for each element in an array.
 
@@ -851,7 +851,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **get**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:175](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L175)
+Defined in: [src/deque.ts:175](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L175)
 
 #### Parameters
 
@@ -869,7 +869,7 @@ Defined in: [src/deque.ts:175](https://github.com/isdk/util.js/blob/30c54a8a455a
 
 > **includes**(`searchElement`, `fromIndex?`): `boolean`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2016.array.include.d.ts:25
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2016.array.include.d.ts:25
 
 Determines whether an array includes a certain element, returning true or false as appropriate.
 
@@ -901,7 +901,7 @@ The position in this array at which to begin searching for searchElement.
 
 > **indexOf**(`searchElement`, `fromIndex?`): `number`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1418
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1425
 
 Returns the index of the first occurrence of a value in an array, or -1 if it is not present.
 
@@ -933,7 +933,7 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 > **isEmpty**(): `boolean`
 
-Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L217)
+Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L217)
 
 #### Returns
 
@@ -945,7 +945,7 @@ Defined in: [src/deque.ts:217](https://github.com/isdk/util.js/blob/30c54a8a455a
 
 > **join**(`separator?`): `string`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1361
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1364
 
 Adds all the elements of an array into a string, separated by the specified separator string.
 
@@ -971,7 +971,7 @@ A string used to separate one element of the array from the next in the resultin
 
 > **keys**(): `ArrayIterator`\<`number`\>
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:88
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:88
 
 Returns an iterable of keys in the array
 
@@ -989,7 +989,7 @@ Returns an iterable of keys in the array
 
 > **lastIndexOf**(`searchElement`, `fromIndex?`): `number`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1424
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1431
 
 Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.
 
@@ -1021,7 +1021,7 @@ The array index at which to begin searching backward. If fromIndex is omitted, t
 
 > **map**\<`U`\>(`callbackfn`, `thisArg?`): `U`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1463
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1470
 
 Calls a defined callback function on each element of an array, and returns an array that contains the results.
 
@@ -1059,7 +1059,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **peekBack**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L190)
+Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L190)
 
 #### Returns
 
@@ -1071,7 +1071,7 @@ Defined in: [src/deque.ts:190](https://github.com/isdk/util.js/blob/30c54a8a455a
 
 > **peekFront**(): `T` \| `undefined`
 
-Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L199)
+Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L199)
 
 #### Returns
 
@@ -1083,7 +1083,7 @@ Defined in: [src/deque.ts:199](https://github.com/isdk/util.js/blob/30c54a8a455a
 
 > **pop**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:101](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L101)
+Defined in: [src/deque.ts:101](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L101)
 
 Removes and returns the element at the back of the deque.
 
@@ -1133,7 +1133,7 @@ mixedDeque.pop(false); // null (explicitly not skipping)
 
 > **push**(`item`): `number`
 
-Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L52)
+Defined in: [src/deque.ts:52](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L52)
 
 Appends new elements to the end of an array, and returns the new length of the array.
 
@@ -1159,7 +1159,7 @@ Appends new elements to the end of an array, and returns the new length of the a
 
 > **reduce**(`callbackfn`): `T`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1481
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1488
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1183,7 +1183,7 @@ A function that accepts up to four arguments. The reduce method calls the callba
 
 > **reduce**(`callbackfn`, `initialValue`): `T`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1482
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1489
 
 ##### Parameters
 
@@ -1207,7 +1207,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **reduce**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1488
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1495
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1247,7 +1247,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **reduceRight**(`callbackfn`): `T`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1494
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1501
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1271,7 +1271,7 @@ A function that accepts up to four arguments. The reduceRight method calls the c
 
 > **reduceRight**(`callbackfn`, `initialValue`): `T`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1495
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1502
 
 ##### Parameters
 
@@ -1295,7 +1295,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **reduceRight**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1501
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1508
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1333,7 +1333,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **removeAt**(`index`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L226)
+Defined in: [src/deque.ts:226](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L226)
 
 Removes the element at the specified index.
 
@@ -1357,7 +1357,7 @@ The removed element
 
 > **reverse**(): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1366
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1369
 
 Reverses the elements in an array in place.
 This method mutates the array and returns a reference to the same array.
@@ -1376,7 +1376,7 @@ This method mutates the array and returns a reference to the same array.
 
 > **shift**(`skipNull?`): `T` \| `undefined`
 
-Defined in: [src/deque.ts:141](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L141)
+Defined in: [src/deque.ts:141](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L141)
 
 Removes and returns the element at the front of the deque.
 
@@ -1426,7 +1426,7 @@ mixedDeque.shift(false); // null (explicitly not skipping)
 
 > **slice**(`start?`, `end?`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1381
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1384
 
 Returns a copy of a section of an array.
 For both start and end, a negative index can be used to indicate an offset from the end of the array.
@@ -1462,7 +1462,7 @@ If end is undefined, then the slice extends to the end of the array.
 
 > **some**(`predicate`, `thisArg?`): `boolean`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1451
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1458
 
 Determines whether the specified callback function returns true for any element of an array.
 
@@ -1497,7 +1497,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **sort**(`compareFn?`): `this`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1392
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1395
 
 Sorts an array in place.
 This method mutates the array and returns a reference to the same array.
@@ -1531,7 +1531,7 @@ value otherwise. If omitted, the elements are sorted in ascending, UTF-16 code u
 
 > **splice**(`start`, `deleteCount?`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1399
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1404
 
 Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 
@@ -1547,7 +1547,9 @@ The zero-based location in the array from which to start removing elements.
 
 `number`
 
-The number of elements to remove.
+The number of elements to remove. Omitting this argument will remove all elements from the start
+paramater location to end of the array. If value of this argument is either a negative number, zero, undefined, or a type
+that cannot be converted to an integer, the function will evaluate the argument as zero and not remove any elements.
 
 ##### Returns
 
@@ -1563,7 +1565,7 @@ An array containing the elements that were deleted.
 
 > **splice**(`start`, `deleteCount`, ...`items`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1407
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1414
 
 Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 
@@ -1579,7 +1581,9 @@ The zero-based location in the array from which to start removing elements.
 
 `number`
 
-The number of elements to remove.
+The number of elements to remove. If value of this argument is either a negative number, zero,
+undefined, or a type that cannot be converted to an integer, the function will evaluate the argument as zero and
+not remove any elements.
 
 ###### items
 
@@ -1605,7 +1609,7 @@ An array containing the elements that were deleted.
 
 > **toLocaleString**(): `string`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1334
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1337
 
 Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.
 
@@ -1621,13 +1625,13 @@ Returns a string representation of an array. The elements are converted to strin
 
 > **toLocaleString**(`locales`, `options?`): `string`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:64
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:64
 
 ##### Parameters
 
 ###### locales
 
-`string` | `string`[]
+`string` \| `string`[]
 
 ###### options?
 
@@ -1647,7 +1651,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > **toString**(): `string`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1330
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1333
 
 Returns a string representation of an array.
 
@@ -1665,7 +1669,7 @@ Returns a string representation of an array.
 
 > **unshift**(`item`): `number`
 
-Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/deque.ts#L65)
+Defined in: [src/deque.ts:65](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/deque.ts#L65)
 
 Inserts new elements at the start of an array, and returns the new length of the array.
 
@@ -1689,7 +1693,7 @@ Inserts new elements at the start of an array, and returns the new length of the
 
 > **values**(): `ArrayIterator`\<`T`\>
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:93
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:93
 
 Returns an iterable of values in the array
 
@@ -1709,7 +1713,7 @@ Returns an iterable of values in the array
 
 > `static` **from**\<`T`\>(`arrayLike`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:72
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:72
 
 Creates an array from an array-like object.
 
@@ -1739,7 +1743,7 @@ An array-like object to convert to an array.
 
 > `static` **from**\<`T`, `U`\>(`arrayLike`, `mapfn`, `thisArg?`): `U`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:80
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:80
 
 Creates an array from an iterable object.
 
@@ -1785,7 +1789,7 @@ Value of 'this' used to invoke the mapfn.
 
 > `static` **from**\<`T`\>(`iterable`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:101
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:101
 
 Creates an array from an iterable object.
 
@@ -1799,9 +1803,9 @@ Creates an array from an iterable object.
 
 ###### iterable
 
-An iterable object to convert to an array.
+`Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+An iterable object to convert to an array.
 
 ##### Returns
 
@@ -1815,7 +1819,7 @@ An iterable object to convert to an array.
 
 > `static` **from**\<`T`, `U`\>(`iterable`, `mapfn`, `thisArg?`): `U`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:109
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.iterable.d.ts:109
 
 Creates an array from an iterable object.
 
@@ -1833,9 +1837,9 @@ Creates an array from an iterable object.
 
 ###### iterable
 
-An iterable object to convert to an array.
+`Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+An iterable object to convert to an array.
 
 ###### mapfn
 
@@ -1863,7 +1867,7 @@ Value of 'this' used to invoke the mapfn.
 
 > `static` **isArray**(`arg`): `arg is any[]`
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es5.d.ts:1513
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es5.d.ts:1520
 
 #### Parameters
 
@@ -1885,7 +1889,7 @@ Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/li
 
 > `static` **of**\<`T`\>(...`items`): `T`[]
 
-Defined in: node\_modules/.pnpm/typescript@5.8.2/node\_modules/typescript/lib/lib.es2015.core.d.ts:86
+Defined in: node\_modules/.pnpm/typescript@5.9.3/node\_modules/typescript/lib/lib.es2015.core.d.ts:86
 
 Returns a new array from a set of elements.
 

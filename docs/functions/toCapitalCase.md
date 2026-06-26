@@ -8,7 +8,7 @@
 
 > **toCapitalCase**(`str`): `string`
 
-Defined in: [src/to-capital-case.ts:17](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/to-capital-case.ts#L17)
+Defined in: [src/to-capital-case.ts:17](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/to-capital-case.ts#L17)
 
 Converts a string to capital case, where the first letter of each word is capitalized
 and the rest are in lowercase. Words are separated by spaces, hyphens, or underscores.

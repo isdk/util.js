@@ -4,11 +4,11 @@
 
 [@isdk/util](../globals.md) / StringifyFunc
 
-# Type Alias: StringifyFunc()
+# Type Alias: StringifyFunc
 
 > **StringifyFunc** = (`content`) => `string`
 
-Defined in: [src/config-file.ts:18](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/config-file.ts#L18)
+Defined in: [src/config-file.ts:18](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/config-file.ts#L18)
 
 ## Parameters
 

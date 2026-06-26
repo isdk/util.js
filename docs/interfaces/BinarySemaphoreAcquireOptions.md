@@ -6,7 +6,9 @@
 
 # Interface: BinarySemaphoreAcquireOptions
 
-Defined in: [src/async-semaphore.ts:28](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/async-semaphore.ts#L28)
+Defined in: [src/async-semaphore.ts:70](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/async-semaphore.ts#L70)
+
+获取信号量时的选项。
 
 ## Extended by
 
@@ -14,12 +16,17 @@ Defined in: [src/async-semaphore.ts:28](https://github.com/isdk/util.js/blob/30c
 
 ## Indexable
 
-\[`n`: `string`\]: `any`
+> \[`n`: `string`\]: `any`
+
+允许扩展其他自定义选项。
 
 ## Properties
 
 ### signal?
 
-> `optional` **signal**: `AbortSignal`
+> `optional` **signal?**: `AbortSignal`
 
-Defined in: [src/async-semaphore.ts:29](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/async-semaphore.ts#L29)
+Defined in: [src/async-semaphore.ts:75](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/async-semaphore.ts#L75)
+
+可选的 AbortSignal，用于取消获取操作。
+如果在获取到令牌前信号被中止，`acquire` 返回的 Promise 将被拒绝并抛出 `AbortError`。

@@ -4,11 +4,11 @@
 
 [@isdk/util](../globals.md) / TraverseFolderSyncHandler
 
-# Type Alias: TraverseFolderSyncHandler()
+# Type Alias: TraverseFolderSyncHandler
 
 > **TraverseFolderSyncHandler** = (`filePath`, `entry`) => `boolean` \| `void`
 
-Defined in: [src/traverse-folder.ts:21](https://github.com/isdk/util.js/blob/30c54a8a455a9593000448de2a45f94a197d73de/src/traverse-folder.ts#L21)
+Defined in: [src/traverse-folder.ts:21](https://github.com/isdk/util.js/blob/c98bd1bf94d1b1dc8d01c6b9a6fc50b4beec5c62/src/traverse-folder.ts#L21)
 
 A handler function for synchronous folder traversal.
 
